@@ -1,0 +1,84 @@
+[
+  {
+    "id": "house_myrwatch",
+    "nome": "Myrwatch",
+    "pacote": "Myrwatch (Creation Club / AE)",
+    "localizacao": "A leste de Morthal (Hjaalmarch)",
+    "location_id": "loc_myrwatch",
+    "nivel_minimo": 5,
+    "requisitos": [
+      "Chegue à torre a leste de Morthal",
+      "Pegue o Hans's Journal (o corpo também traz o tomo de Flames)",
+      "Lance um feitiço de fogo (Flames) no selo"
+    ],
+    "quest_ids": ["quest_myrwatch"],
+    "beneficios": [
+      "Gratuita (não exige comprar nada)",
+      "Arcane Enchanter, bancada e alquimia",
+      "Melhor primeira casa para magos"
+    ],
+    "riscos": [
+      "Um chaurus nivelado guarda o local: vá até o nível 5–8",
+      "Valores exatos por nível marcados para conferir no jogo [C]"
+    ],
+    "fase_recomendada": "early",
+    "source_page": 14,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 5 (UESP) + Seção 7 #4: valores exatos por nível não reverificados [C].",
+    "needs_verification": true
+  },
+  {
+    "id": "house_goldenhills",
+    "nome": "Goldenhills Plantation",
+    "pacote": "Farming (Creation Club / AE)",
+    "localizacao": "A leste de Rorikstead",
+    "location_id": "loc_goldenhills",
+    "nivel_minimo": 1,
+    "requisitos": [
+      "Ao entrar na fazenda, inicia a quest The Unquiet Dead (espíritos inquietos)",
+      "Depois, a linha A Farmer's Life For Me desenvolve a fazenda"
+    ],
+    "quest_ids": ["quest_unquiet_dead", "quest_farmers_life"],
+    "beneficios": [
+      "Gratuita",
+      "Produz mercadorias e gera renda modesta constante antes de Dawnguard"
+    ],
+    "riscos": [
+      "Após iniciar a quest principal da Dawnguard, vampiros passam a atacar Goldenhills Plantation (UESP [A])",
+      "Não gera ouro infinito (Apêndice A corrige esse mito)"
+    ],
+    "fase_recomendada": "early",
+    "source_page": 14,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 1 #12 (UESP) + Seção 7 #4: ataques de vampiros confirmados [A]; valores por nível [C].",
+    "needs_verification": true
+  },
+  {
+    "id": "house_bloodchill",
+    "nome": "Bloodchill Manor",
+    "pacote": "Bloodchill Manor (Creation Club / AE)",
+    "localizacao": "Bloodchill Cavern, a sudoeste de Winterhold",
+    "location_id": "loc_bloodchill_manor",
+    "nivel_minimo": 12,
+    "requisitos": [
+      "Uma carta de mensageiro chega por volta do nível 12 e inicia Guests for Dinner (um jantar de vampiros)"
+    ],
+    "quest_ids": ["quest_guests_for_dinner"],
+    "beneficios": [
+      "Gratuita após concluir a quest",
+      "Tem uma panela de fundição"
+    ],
+    "riscos": [
+      "Perigoso: deixe para a Mid Game; os anfitriões são vampiros",
+      "Bloodchill Manor não foi pesquisado na UESP neste dossiê — verificar valores e detalhes no jogo [C]"
+    ],
+    "fase_recomendada": "mid",
+    "source_page": 14,
+    "confidence": "low",
+    "confidence_tier": "C",
+    "game_version_note": "Dossiê Seção 7 #9: Bloodchill Manor não foi reverificado na UESP neste dossiê [C].",
+    "needs_verification": true
+  }
+]

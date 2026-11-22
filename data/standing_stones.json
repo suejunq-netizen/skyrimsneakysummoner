@@ -1,0 +1,54 @@
+[
+  {
+    "id": "stone_mage",
+    "nome": "Mage Stone",
+    "efeito": "Habilidades mágicas sobem 20% mais rápido (Conjuration, Illusion e Enchanting — manter selo verificar [C]).",
+    "local": "Guardian Stones, perto de Riverwood (entre Helgen e Riverwood, a leste do Lago Ilinalta)",
+    "location_id": "loc_guardian_stones",
+    "recomendacao": "Ative logo no início (Passo 2). Só um signo fica ativo por vez.",
+    "source_page": 12,
+    "confidence": "medium",
+    "confidence_tier": "C",
+    "game_version_note": "Dossiê Seção 1 #14 e Seção 7 #4: '+20%' não foi reverificado neste dossiê [C].",
+    "needs_verification": true
+  },
+  {
+    "id": "stone_ritual",
+    "nome": "Ritual Stone",
+    "efeito": "Reanima cadáveres próximos uma vez por dia.",
+    "local": "A leste de Whiterun, ao sul do rio",
+    "location_id": "loc_ritual_stone",
+    "recomendacao": "Boa curiosidade para necromantes mais tarde, após iniciar com a Mage Stone.",
+    "source_page": 12,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Cap. 3.3 (PDF p. 12).",
+    "needs_verification": false
+  },
+  {
+    "id": "stone_shadow",
+    "nome": "Shadow Stone",
+    "efeito": "Invisibilidade por 60 s, uma vez por dia.",
+    "local": "Ao sul de Riften",
+    "location_id": "loc_shadow_stone",
+    "recomendacao": "Opção situacional para furtividade adicional.",
+    "source_page": 12,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Cap. 3.3 (PDF p. 12).",
+    "needs_verification": false
+  },
+  {
+    "id": "stone_apprentice",
+    "nome": "Apprentice Stone",
+    "efeito": "Recuperação de Magicka muito mais rápida (mas fraqueza a magia).",
+    "local": "Ao sul de Solitude",
+    "location_id": "loc_apprentice_stone",
+    "recomendacao": "Usar com cautela devido à fraqueza a magia.",
+    "source_page": 12,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Cap. 3.3 (PDF p. 12).",
+    "needs_verification": false
+  }
+]

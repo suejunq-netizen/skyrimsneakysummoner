@@ -1,0 +1,230 @@
+{
+  "loops": [
+    {
+      "id": "loop_soul_trap",
+      "nome": "Loop de Conjuration (Soul Trap em cadáver)",
+      "escola": "Conjuration",
+      "passos": [
+        "Mate um inimigo fraco (um lobo ou bandido).",
+        "Lance Soul Trap no corpo repetidamente até zerar a Magicka.",
+        "Use a opção Wait (esperar) por 1 hora para recuperar a Magicka.",
+        "Repita com a Mage Stone ativa, perks de Conjuration e equipamentos de redução de custo."
+      ],
+      "wait_hours": 1,
+      "aviso_nivel": "Cada skill up dá XP igual ao novo nível da habilidade. Treine só as skills da build até ~nível 31 para não inflar o level scaling antes da hora.",
+      "dica": "Alterne com feitiços de invocação reais (Conjure Familiar ou atronaque) para ganhar experiência e um aliado de bônus. Ao chegar em Conjuration 100, compre Twin Souls.",
+      "source_page": 15,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 4.1 (PDF p. 15) e Dossiê Seção 2.1 (UESP).",
+      "needs_verification": false
+    },
+    {
+      "id": "loop_illusion_muffle",
+      "nome": "Loop de Illusion (Muffle e Fenrik's Welcome)",
+      "escola": "Illusion",
+      "passos": [
+        "Muffle é Apprentice (Illusion 25, custo base 88, 180 s). Lance repetidamente em segurança e renove antes de acabar.",
+        "Quanto mais caro o feitiço de Illusion conhecido, mais XP dá por lançamento. Ao pegar Fenrik's Welcome (Illusion 75, 116 Magicka, 5 s), alterne com Muffle.",
+        "Descanse (Wait 1 hora) para recuperar a Magicka e continue."
+      ],
+      "wait_hours": 1,
+      "aviso_nivel": "Evite subir níveis em excesso sem acompanhar com Conjuration e equipamento.",
+      "dica": "Lançar feitiços de Illusion em lugares seguros funciona igual a usar em NPCs hostis: treine em casa para estabilidade.",
+      "source_page": 15,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Dossiê Seção 1 #3, #13 e Cap. 4.2 (PDF p. 15).",
+      "needs_verification": false
+    },
+    {
+      "id": "loop_enchanting_legit",
+      "nome": "Motor de Encantamento (4 peças × 25% = Custo Zero)",
+      "escola": "Enchanting",
+      "passos": [
+        "Aprenda encantamentos desencantando itens no Arcane Enchanter (ex.: Myrwatch). Procure Fortify Conjuration, Fortify Illusion e Fortify Magicka.",
+        "Capture almas com Soul Trap (ou obtenha Azura's Star / Black Star) ou compre gemas cheias.",
+        "Com Enchanting 100 + Enchanter 5/5 + Insightful Enchanter, encante 4 peças (elmo, peito, anel, amuleto) com 25% cada.",
+        "4 peças × 25% somam 100% e zeram o custo de Conjuration (o teto de 85% vale apenas para resistências, não para feitiços)."
+      ],
+      "wait_hours": 0,
+      "aviso_nivel": "O guia exclui combinações infinitas (Restoration loop): você já zera o custo normalmente com Enchanting 100.",
+      "dica": "Não ultrapasse 100% na mesma escola; use os slots extras (Extra Effect) para Fortify Illusion, Fortify Sneak e Fortify Magicka.",
+      "source_page": 16,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Dossiê Seção 1 #1 (UESP Magic Overview) e Cap. 4.3 (PDF p. 16).",
+      "needs_verification": false
+    }
+  ],
+  "combat_cycle": [
+    {
+      "id": "cycle_1_observe",
+      "passo": 1,
+      "titulo": "Observe",
+      "descricao": "Agache-se (Sneak) e identifique inimigos antes de entrar.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.1 (PDF p. 24).",
+      "needs_verification": false
+    },
+    {
+      "id": "cycle_2_summon",
+      "passo": 2,
+      "titulo": "Invoque à distância",
+      "descricao": "Lance as invocações antes de ser visto. O perk Summoner aumenta o alcance (2x/3x) e Quiet Casting silencia o lançamento.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.1 (PDF p. 24) e Dossiê Seção 3.1/3.2.",
+      "needs_verification": false
+    },
+    {
+      "id": "cycle_3_invisible",
+      "passo": 3,
+      "titulo": "Fique invisível",
+      "descricao": "Saque o Bow of Shadows (invisibilidade ao sacar — 'botão de sumir') e atire de longe com Deadly Aim (3x).",
+      "source_page": 24,
+      "confidence": "medium",
+      "confidence_tier": "B",
+      "game_version_note": "Cap. 8.1 (PDF p. 24) e Dossiê Seção 7 #8.",
+      "needs_verification": true
+    },
+    {
+      "id": "cycle_4_refresh",
+      "passo": 4,
+      "titulo": "Reponha",
+      "descricao": "Renove invocações antes que expirem (~10 s antes dos 60 s); respeite a ordem validada em casa com Bone Colossus.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A/C",
+      "game_version_note": "Cap. 7.2, Cap. 8.1 (PDF p. 22, 24) e Dossiê Seção 1 #8.",
+      "needs_verification": false
+    }
+  ],
+  "troubleshooting": [
+    {
+      "id": "tr_duration",
+      "problema": "Invocações somem rápido",
+      "causa_provavel": "Duração padrão de 60 s (ou slot de Twin Souls sobrescrito após Bone Colossus)",
+      "solucao": "Compre Necromancy, Atromancy e Ascendant Robes (+25% duração); teste a ordem pós-Colosso dentro de casa.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A/C",
+      "game_version_note": "Cap. 8.2 (PDF p. 24) e Dossiê Seção 1 #6, #8.",
+      "needs_verification": false
+    },
+    {
+      "id": "tr_magicka",
+      "problema": "Magicka acaba",
+      "causa_provavel": "Custo alto e pouco equipamento",
+      "solucao": "Encante 4 peças × 25% Fortify Conjuration (custo zero); use perks de categoria, poções ou Secret of Arcana.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.2 (PDF p. 24) e Dossiê Seção 1 #1, Seção 5.",
+      "needs_verification": false
+    },
+    {
+      "id": "tr_detected",
+      "problema": "Inimigos me veem",
+      "causa_provavel": "Ruído e brilho de magia",
+      "solucao": "Muffle, Muffled Movement e Quiet Casting; evite lugares iluminados.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.2 (PDF p. 24).",
+      "needs_verification": false
+    },
+    {
+      "id": "tr_cc_quest",
+      "problema": "Quest do Creation Club não inicia",
+      "causa_provavel": "Na AE as quests não começam sozinhas",
+      "solucao": "Fale com o NPC indicado (ex.: Proventus em Dragonsreach) ou leia o menu Creations.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.2 (PDF p. 24) e Dossiê Seção 5.",
+      "needs_verification": false
+    },
+    {
+      "id": "tr_vendor_stock",
+      "problema": "Não vejo o feitiço na loja de Phinis / Drevis",
+      "causa_provavel": "Estoque depende do nível (App 1 / Nov 10 / Adp 20 / Exp 35 / Mas 46) ou falta concluir First Lessons",
+      "solucao": "Conclua First Lessons, suba até o portão de nível necessário ou saqueie Warlock Lairs / Hob's Fall Cave.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A/C",
+      "game_version_note": "Cap. 8.2 (PDF p. 24) e Dossiê Seção 1 #10, 4.1.",
+      "needs_verification": false
+    },
+    {
+      "id": "tr_follower",
+      "problema": "Seguidor atrapalha",
+      "causa_provavel": "Posicionamento",
+      "solucao": "Dê ordens simples; deixe-o esperar fora da luta.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.2 (PDF p. 24).",
+      "needs_verification": false
+    }
+  ],
+  "beginner_mistakes": [
+    {
+      "id": "mistake_level_fast",
+      "erro": "Subir de nível rápido demais com habilidades fora da build",
+      "motivo": "Inimigos escalam com seu nível e Encounter Zones travam na 1ª visita. Feche a build no ~nível 31 antes de subir skills secundárias.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.3 (PDF p. 24) e Dossiê Seção 2.3/2.4.",
+      "needs_verification": false
+    },
+    {
+      "id": "mistake_no_save",
+      "erro": "Esquecer de salvar antes de quests longas (Blood on the Ice, Black Star, Dawnguard)",
+      "motivo": "Bugs de diálogo, escolhas exclusivas ou ataques em Goldenhills exigem save separado anterior.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.3 (PDF p. 24) e Dossiê Seção 1 #5, #12.",
+      "needs_verification": false
+    },
+    {
+      "id": "mistake_amulet_always",
+      "erro": "Usar o amuleto do necromante o tempo todo",
+      "motivo": "Ele reduz a regeneração de vida e estamina em 75%; troque quando precisar se curar.",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.3 (PDF p. 24).",
+      "needs_verification": false
+    },
+    {
+      "id": "mistake_weight",
+      "erro": "Acumular peso demais",
+      "motivo": "Guarde o excesso em casa (Myrwatch, Goldenhills ou Bloodchill Manor).",
+      "source_page": 24,
+      "confidence": "high",
+      "confidence_tier": "A",
+      "game_version_note": "Cap. 8.3 (PDF p. 24).",
+      "needs_verification": false
+    }
+  ],
+  "final_checklist": [
+    { "id": "fc_01", "ordem": 1, "texto": "Mage Stone ativa; casa gratuita liberada (Myrwatch).", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C (PDF p. 27).", "needs_verification": false },
+    { "id": "fc_02", "ordem": 2, "texto": "Bow of Shadows obtido (In the Shadows).", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C (PDF p. 27).", "needs_verification": false },
+    { "id": "fc_03", "ordem": 3, "texto": "Muffle aprendido (Illusion 25); Conjuration e Illusion em evolução.", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C (PDF p. 27) e Dossiê #3.", "needs_verification": false },
+    { "id": "fc_04", "ordem": 4, "texto": "Colégio de Winterhold: First Lessons, Phinis Gestor e Drevis Neloren.", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C (PDF p. 27).", "needs_verification": false },
+    { "id": "fc_05", "ordem": 5, "texto": "Necromancer's Amulet (Blood on the Ice — salvo antes).", "source_page": 27, "confidence": "medium", "confidence_tier": "A/C", "game_version_note": "Apêndice C + Dossiê Seção 7 #1.", "needs_verification": true },
+    { "id": "fc_06", "ordem": 6, "texto": "Máscara Vokun (High Gate Ruins, zona mín. 24); Twin Souls comprado.", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C (PDF p. 27) e Dossiê Seção 2.4.", "needs_verification": false },
+    { "id": "fc_07", "ordem": 7, "texto": "Azura's Star ou The Black Star (perto de Winterhold).", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C + Dossiê Seção 1 #4, #5.", "needs_verification": false },
+    { "id": "fc_08", "ordem": 8, "texto": "Dawnguard: Serana e Soul Cairn (Wrathman, Mistman, Boneman, Arvak [B]).", "source_page": 27, "confidence": "medium", "confidence_tier": "B", "game_version_note": "Apêndice C + Dossiê Seção 1 #11.", "needs_verification": false },
+    { "id": "fc_09", "ordem": 9, "texto": "Dragonborn: Black Books (Waking Dreams e Filament and Filigree).", "source_page": 27, "confidence": "medium", "confidence_tier": "B", "game_version_note": "Apêndice C + Dossiê Seção 5.", "needs_verification": false },
+    { "id": "fc_10", "ordem": 10, "texto": "Nível 46+: Bone Colossus e Ancient Deathpriest comprados em Phinis.", "source_page": 27, "confidence": "high", "confidence_tier": "A/C", "game_version_note": "Apêndice C + Dossiê Seção 1 #10.", "needs_verification": false },
+    { "id": "fc_11", "ordem": 11, "texto": "Ascendant Necromancer Robes e Hood obtidos (nível 40+).", "source_page": 27, "confidence": "high", "confidence_tier": "A", "game_version_note": "Apêndice C + Dossiê Seção 1 #6, #9.", "needs_verification": false },
+    { "id": "fc_12", "ordem": 12, "texto": "4 peças × 25% (custo zero) e exército validado dentro de casa [C].", "source_page": 27, "confidence": "low", "confidence_tier": "C", "game_version_note": "Dossiê Seção 1 #1, #7, #8 e Seção 7 #2.", "needs_verification": true }
+  ]
+}

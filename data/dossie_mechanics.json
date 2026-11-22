@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "date": "2026-11-22",
+    "primary_source": "UESP (en.uesp.net) + dossie_necromante_furtivo_skyrim_ae.md",
+    "coordinates_policy": "Sem coordenadas exatas do mapa do jogo; posições no mapa estilizado são ilustrativas com base em descrições relativas."
+  },
+  "level_math": {
+    "xp_to_next_formula": "(N + 3) * 25",
+    "xp_cumulative_formula": "12.5 * N^2 + 62.5 * N - 75",
+    "char_xp_per_skill_up": "Novo nível da habilidade (ex.: 20 -> 21 = 21 XP de personagem)",
+    "perk_points_rule": "1 ponto de perk por nível de personagem a partir do nível 2 (nível - 1)",
+    "training": {
+      "max_per_level": 5,
+      "caps": {
+        "common": 50,
+        "expert": 75,
+        "master": 90
+      }
+    },
+    "cumulative_xp": {
+      "5": 550,
+      "10": 1800,
+      "15": 3675,
+      "20": 6175,
+      "25": 9300,
+      "30": 13050,
+      "35": 17425,
+      "40": 22425,
+      "46": 29250,
+      "50": 34300
+    }
+  },
+  "build_milestones_breton": [
+    {
+      "id": "early_end",
+      "label": "Fim do Early",
+      "conj": 40,
+      "ill": 30,
+      "sneak": 30,
+      "arch": 30,
+      "ench": 20,
+      "approx_level": 9
+    },
+    {
+      "id": "mid_half",
+      "label": "Meio do Mid",
+      "conj": 60,
+      "ill": 40,
+      "sneak": 35,
+      "arch": 35,
+      "ench": 35,
+      "approx_level": 14
+    },
+    {
+      "id": "mid_end",
+      "label": "Fim do Mid",
+      "conj": 80,
+      "ill": 50,
+      "sneak": 40,
+      "arch": 40,
+      "ench": 50,
+      "approx_level": 20
+    },
+    {
+      "id": "late_start",
+      "label": "Início do Late",
+      "conj": 100,
+      "ill": 65,
+      "sneak": 50,
+      "arch": 45,
+      "ench": 70,
+      "approx_level": 27
+    },
+    {
+      "id": "late_near_end",
+      "label": "Perto do fim",
+      "conj": 100,
+      "ill": 75,
+      "sneak": 50,
+      "arch": 50,
+      "ench": 90,
+      "approx_level": 30
+    },
+    {
+      "id": "build_complete",
+      "label": "Build completa",
+      "conj": 100,
+      "ill": 75,
+      "sneak": 50,
+      "arch": 50,
+      "ench": 100,
+      "approx_level": 31
+    }
+  ],
+  "cc_level_gates": {
+    "phinis_stock": {
+      "apprentice": 1,
+      "novice": 10,
+      "adept": 20,
+      "expert": 35,
+      "master": 46,
+      "confidence_tier": "A/C"
+    },
+    "necromancer_robes": {
+      "basic": 1,
+      "quickening": 8,
+      "recharging": 16,
+      "replenishing": 24,
+      "elite": 32,
+      "ascendant": 40,
+      "confidence_tier": "A"
+    }
+  },
+  "trainers": [
+    {
+      "id": "tr_runil",
+      "escola": "Conjuration",
+      "npc": "Runil",
+      "local": "Falkreath",
+      "tier": "Comum (50)",
+      "cap": 50,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_phinis",
+      "escola": "Conjuration",
+      "npc": "Phinis Gestor",
+      "local": "Colégio de Winterhold",
+      "tier": "Expert (75)",
+      "cap": 75,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_falion",
+      "escola": "Conjuration",
+      "npc": "Falion",
+      "local": "Morthal",
+      "tier": "Master (90)",
+      "cap": 90,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_atub",
+      "escola": "Illusion",
+      "npc": "Atub",
+      "local": "Largashbur",
+      "tier": "Expert (75)",
+      "cap": 75,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_drevis",
+      "escola": "Illusion",
+      "npc": "Drevis Neloren",
+      "local": "Colégio de Winterhold",
+      "tier": "Master (90)",
+      "cap": 90,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_khayla",
+      "escola": "Sneak",
+      "npc": "Khayla",
+      "local": "Caravana Khajiit",
+      "tier": "Comum (50)",
+      "cap": 50,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_garvey",
+      "escola": "Sneak",
+      "npc": "Garvey",
+      "local": "Markarth",
+      "tier": "Expert (75)",
+      "cap": 75,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_delvin",
+      "escola": "Sneak",
+      "npc": "Delvin Mallory",
+      "local": "Ragged Flagon (Riften)",
+      "tier": "Master (90)",
+      "cap": 90,
+      "confidence_tier": "A"
+    },
+    {
+      "id": "tr_sergius",
+      "escola": "Enchanting",
+      "npc": "Sergius Turrianus",
+      "local": "Colégio de Winterhold",
+      "tier": "Expert (75)",
+      "cap": 75,
+      "confidence_tier": "A"
+    }
+  ],
+  "perk_order_30": [
+    { "step": 1, "perk_id": "perk_novice_conjuration", "rank": 1, "label": "Novice Conjuration" },
+    { "step": 2, "perk_id": "perk_apprentice_conjuration", "rank": 1, "label": "Apprentice Conjuration" },
+    { "step": 3, "perk_id": "perk_necromancy", "rank": 1, "label": "Necromancy" },
+    { "step": 4, "perk_id": "perk_novice_illusion", "rank": 1, "label": "Novice Illusion" },
+    { "step": 5, "perk_id": "perk_apprentice_illusion", "rank": 1, "label": "Apprentice Illusion" },
+    { "step": 6, "perk_id": "perk_enchanter", "rank": 1, "label": "Enchanter 1/5" },
+    { "step": 7, "perk_id": "perk_stealth", "rank": 1, "label": "Stealth 1/5" },
+    { "step": 8, "perk_id": "perk_overdraw", "rank": 1, "label": "Overdraw 1/5" },
+    { "step": 9, "perk_id": "perk_animage", "rank": 1, "label": "Animage" },
+    { "step": 10, "perk_id": "perk_enchanter", "rank": 2, "label": "Enchanter 2/5" },
+    { "step": 11, "perk_id": "perk_kindred_mage", "rank": 1, "label": "Kindred Mage" },
+    { "step": 12, "perk_id": "perk_adept_conjuration", "rank": 1, "label": "Adept Conjuration" },
+    { "step": 13, "perk_id": "perk_quiet_casting", "rank": 1, "label": "Quiet Casting" },
+    { "step": 14, "perk_id": "perk_muffled_movement", "rank": 1, "label": "Muffled Movement" },
+    { "step": 15, "perk_id": "perk_backstab", "rank": 1, "label": "Backstab" },
+    { "step": 16, "perk_id": "perk_deadly_aim", "rank": 1, "label": "Deadly Aim" },
+    { "step": 17, "perk_id": "perk_enchanter", "rank": 3, "label": "Enchanter 3/5" },
+    { "step": 18, "perk_id": "perk_insightful_enchanter", "rank": 1, "label": "Insightful Enchanter" },
+    { "step": 19, "perk_id": "perk_dark_souls", "rank": 1, "label": "Dark Souls" },
+    { "step": 20, "perk_id": "perk_enchanter", "rank": 4, "label": "Enchanter 4/5" },
+    { "step": 21, "perk_id": "perk_expert_conjuration", "rank": 1, "label": "Expert Conjuration" },
+    { "step": 22, "perk_id": "perk_adept_illusion", "rank": 1, "label": "Adept Illusion" },
+    { "step": 23, "perk_id": "perk_expert_illusion", "rank": 1, "label": "Expert Illusion" },
+    { "step": 24, "perk_id": "perk_enchanter", "rank": 5, "label": "Enchanter 5/5" },
+    { "step": 25, "perk_id": "perk_summoner", "rank": 1, "label": "Summoner 1/2" },
+    { "step": 26, "perk_id": "perk_summoner", "rank": 2, "label": "Summoner 2/2" },
+    { "step": 27, "perk_id": "perk_master_conjuration", "rank": 1, "label": "Master Conjuration" },
+    { "step": 28, "perk_id": "perk_twin_souls", "rank": 1, "label": "Twin Souls" },
+    { "step": 29, "perk_id": "perk_corpus_enchanter", "rank": 1, "label": "Corpus Enchanter" },
+    { "step": 30, "perk_id": "perk_extra_effect", "rank": 1, "label": "Extra Effect" }
+  ],
+  "unconfirmed_items": [
+    {
+      "id": "unc_1_amulet",
+      "texto": "Passo exato do Necromancer's Amulet em Blood on the Ice (Calixto vs. Wuunferth).",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_2_army_limit",
+      "texto": "Resultado final de Twin Souls + Bone Colossus + Ascendant Necromancer Robes (testar em casa).",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_3_muffle_early",
+      "texto": "Onde Muffle é vendido no começo (Farengar não confirmado; também cai em magos).",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_4_mage_stone_houses",
+      "texto": "Mage Stone (+20%) e valores exatos de Myrwatch / Bloodchill / Goldenhills por nível.",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_5_loot_scaling",
+      "texto": "Efeito exato do escalonamento de nível sobre o loot (além dos inimigos) em dungeons.",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_6_black_books",
+      "texto": "Poderes dos demais Black Books além de Waking Dreams, Filament and Filigree e Epistolary Acumen.",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_7_bound_bow",
+      "texto": "Local exato do tomo Bound Bow em Fort Amol (relato de jogadores, não confirmado na UESP).",
+      "confidence_tier": "C"
+    },
+    {
+      "id": "unc_8_bow_shadows",
+      "texto": "Bow of Shadows: invisibilidade de 30 s e saque 20% mais rápido constam apenas em fontes secundárias.",
+      "confidence_tier": "B"
+    },
+    {
+      "id": "unc_9_bloodchill",
+      "texto": "Bloodchill Manor não foi reverificado na UESP neste dossiê.",
+      "confidence_tier": "C"
+    }
+  ]
+}

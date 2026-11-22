@@ -1,0 +1,54 @@
+[
+  {
+    "id": "attr_1_15",
+    "faixa_de_nivel": "1 a 15",
+    "proporcao_m_h_s": "1:0:0 (tudo em Magicka)",
+    "magicka_ratio": 1,
+    "health_ratio": 0,
+    "stamina_ratio": 0,
+    "objetivo": "Juntar Magicka suficiente para conjurar sem ficar vazio.",
+    "source_page": 7,
+    "confidence": "high",
+    "game_version_note": "Tabela Distribuição de atributos (Cap. 2.4, p. 4 do guia impresso; p. 7 do PDF). Cada nível dá +10 em Magicka, Health ou Stamina.",
+    "needs_verification": false
+  },
+  {
+    "id": "attr_16_30",
+    "faixa_de_nivel": "16 a 30",
+    "proporcao_m_h_s": "2:1:0",
+    "magicka_ratio": 2,
+    "health_ratio": 1,
+    "stamina_ratio": 0,
+    "objetivo": "Manter Magicka alta e começar a ganhar vida.",
+    "source_page": 7,
+    "confidence": "high",
+    "game_version_note": "Tabela Distribuição de atributos (Cap. 2.4, p. 4 do guia impresso; p. 7 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "attr_31_45",
+    "faixa_de_nivel": "31 a 45",
+    "proporcao_m_h_s": "1:1:0",
+    "magicka_ratio": 1,
+    "health_ratio": 1,
+    "stamina_ratio": 0,
+    "objetivo": "Equilíbrio: as invocações já fazem boa parte do trabalho.",
+    "source_page": 7,
+    "confidence": "high",
+    "game_version_note": "Tabela Distribuição de atributos (Cap. 2.4, p. 4 do guia impresso; p. 7 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "attr_46_plus",
+    "faixa_de_nivel": "46+",
+    "proporcao_m_h_s": "1:2:0",
+    "magicka_ratio": 1,
+    "health_ratio": 2,
+    "stamina_ratio": 0,
+    "objetivo": "Foco em Health para sobreviver a surpresas.",
+    "source_page": 7,
+    "confidence": "high",
+    "game_version_note": "Tabela Distribuição de atributos (Cap. 2.4, p. 4 do guia impresso; p. 7 do PDF). Stamina fica em 0 de investimento.",
+    "needs_verification": false
+  }
+]

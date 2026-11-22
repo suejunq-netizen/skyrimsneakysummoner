@@ -1,0 +1,1051 @@
+% !TEX program = xelatex
+% ============================================================================
+%  O GRIMÓRIO DO NECROMANTE FURTIVO
+%  Guia completo de Skyrim Anniversary Edition: Stealth Necromancer Summoner
+%  Compilar com XeLaTeX (rode 2 vezes: capa/sumário usam "remember picture").
+%  100% autocontido: nenhuma imagem externa. Todos os gráficos são TikZ/pgfplots.
+%  Fontes: tenta Libertinus; se não existir, usa TeX Gyre (sempre presente no TeX Live).
+% ============================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+
+% ============================================================================
+% 1. GEOMETRIA
+% ============================================================================
+\usepackage[a4paper,top=2.6cm,bottom=2.5cm,left=2.4cm,right=2.4cm,
+            headheight=15pt,headsep=0.7cm,footskip=1.1cm]{geometry}
+
+% ============================================================================
+% 2. FONTES (fontspec) E IDIOMA
+% ============================================================================
+\usepackage{fontspec}
+\IfFontExistsTF{Libertinus Serif}{%
+  % --- Opção preferida: Libertinus (Overleaf / TeX Live completo)
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont[Scale=0.92]{Libertinus Mono}
+  \newfontfamily\titlefont[LetterSpace=3]{Libertinus Sans}
+}{%
+  % --- Alternativa garantida: TeX Gyre (Pagella / Heros / Cursor)
+  \setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+     ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+  \setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+     ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Scale=MatchLowercase]
+  \setmonofont{texgyrecursor}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,
+     ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Scale=MatchLowercase]
+  \newfontfamily\titlefont{texgyreheros}[Extension=.otf,UprightFont=*-bold,BoldFont=*-bold,
+     ItalicFont=*-bolditalic,BoldItalicFont=*-bolditalic,LetterSpace=3]
+}
+\usepackage{polyglossia}
+\setmainlanguage[variant=brazilian]{portuguese}
+\usepackage{microtype}
+
+% ============================================================================
+% 3. CORES (paleta oficial do guia)
+% ============================================================================
+\usepackage[dvipsnames,table]{xcolor}
+\definecolor{ObsidianDark}{HTML}{1A1D24}      % fundo de destaque / texto principal
+\definecolor{NecroEmerald}{HTML}{1E4D3B}      % títulos
+\definecolor{SoulCairnPurple}{HTML}{3B1E54}   % títulos secundários / magias
+\definecolor{ImperialGold}{HTML}{B8860B}      % bordas e acentos
+\definecolor{ParchmentLight}{HTML}{FAF8F5}    % fundo de página
+\definecolor{GoldLight}{HTML}{F3E6C0}
+\definecolor{AmberLight}{HTML}{FFF4D6}
+\definecolor{EmeraldLight}{HTML}{E2EFE9}
+\definecolor{PurpleLight}{HTML}{ECE4F3}
+\definecolor{TipBlue}{HTML}{23666F}
+\definecolor{TipBlueLight}{HTML}{E3F1F3}
+\definecolor{AlertRed}{HTML}{7A1F1F}
+\definecolor{AlertRedLight}{HTML}{F7E4E2}
+
+% ============================================================================
+% 4. TikZ, pgfplots, caixas, tabelas, listas
+% ============================================================================
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,shapes.geometric,shapes.misc,positioning,fit,
+                backgrounds,decorations.pathmorphing,decorations.markings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs,tabularx,array,multicol,enumitem,needspace,graphicx}
+\usepackage{fancyhdr,titlesec}
+
+% ============================================================================
+% 5. ESTILO DE LISTAS
+% ============================================================================
+\newcommand{\gem}{\tikz[baseline=-0.6ex]\fill[ImperialGold]
+  (0,0.62ex)--(0.5ex,0)--(0,-0.62ex)--(-0.5ex,0)--cycle;}
+\setlist[itemize]{leftmargin=1.5em,itemsep=2pt,topsep=3pt,parsep=0pt,label=\gem}
+\setlist[enumerate]{leftmargin=1.9em,itemsep=2pt,topsep=3pt,parsep=0pt,
+  label=\textcolor{ImperialGold}{\sffamily\bfseries\arabic*.}}
+
+% ============================================================================
+% 6. TÍTULOS (titlesec) E ORNAMENTO TikZ
+% ============================================================================
+\newcommand{\ornament}{\par\vspace{2pt}\noindent\begin{tikzpicture}[baseline=-0.5ex]
+  \draw[ImperialGold,line width=0.7pt] (0,0)--(6.6,0);
+  \fill[ImperialGold] (7.0,0.16)--(7.16,0)--(7.0,-0.16)--(6.84,0)--cycle;
+  \fill[NecroEmerald] (7.5,0.1)--(7.6,0)--(7.5,-0.1)--(7.4,0)--cycle;
+  \fill[ImperialGold] (8.0,0.16)--(8.16,0)--(8.0,-0.16)--(7.84,0)--cycle;
+  \draw[ImperialGold,line width=0.7pt] (8.5,0)--(15.1,0);
+\end{tikzpicture}\par}
+
+\titleformat{\chapter}[display]
+  {\sffamily\bfseries\color{NecroEmerald}}
+  {\small\titlefont\color{ImperialGold}\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {0.5em}
+  {\raggedright\fontsize{24}{28}\selectfont\MakeUppercase}
+  [\vspace{0.2em}\ornament]
+\titlespacing*{\chapter}{0pt}{-12pt}{22pt}
+
+\titleformat{\section}
+  {\sffamily\bfseries\Large\color{NecroEmerald}}{\thesection}{0.7em}{}
+  [{\color{ImperialGold}\titlerule[0.5pt]}]
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+\titleformat{\subsection}
+  {\sffamily\bfseries\large\color{SoulCairnPurple}}{\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{5pt}
+
+% ============================================================================
+% 7. CABEÇALHO E RODAPÉ (fancyhdr)
+% ============================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\scriptsize\color{NecroEmerald}\nouppercase{\leftmark}}
+\fancyhead[R]{\sffamily\scriptsize\color{ImperialGold}Stealth Necromancer Summoner}
+\fancyfoot[C]{\sffamily\small\color{ImperialGold}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrule}{{\color{ImperialGold}\hrule height 0.4pt width\headwidth}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\sffamily\small\color{ImperialGold}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\linespread{1.08}
+
+% ============================================================================
+% 8. ATALHOS SEMÂNTICOS DE TEXTO
+% ============================================================================
+\newcommand{\magia}[1]{\textit{\textcolor{SoulCairnPurple}{#1}}}
+\newcommand{\quest}[1]{\textsf{\textbf{\textcolor{NecroEmerald}{#1}}}}
+\newcommand{\lugar}[1]{\textbf{\textcolor{ImperialGold!75!black}{#1}}}
+\newcommand{\npc}[1]{\textbf{#1}}
+\newcommand{\objeto}[1]{\textit{\textcolor{NecroEmerald}{#1}}}
+\newcommand{\perk}[1]{\textsf{\textcolor{SoulCairnPurple}{#1}}}
+
+% ============================================================================
+% 9. ÍCONES VETORIAIS (TikZ) PARA AS CAIXAS
+% ============================================================================
+\newcommand{\iconDica}{\begin{tikzpicture}[baseline=-0.55ex,scale=0.4]
+  \draw[white,fill=white] (0,0.2) circle (0.62);
+  \draw[white,fill=white] (-0.3,-0.3) rectangle (0.3,-0.62);
+  \draw[TipBlue,line width=0.5pt] (-0.22,-0.1)--(0.22,-0.1);
+  \end{tikzpicture}}
+\newcommand{\iconExploit}{\begin{tikzpicture}[baseline=-0.55ex,scale=0.4]
+  \node[star,star points=5,star point ratio=2.2,inner sep=0pt,minimum size=0.55cm,
+        fill=ObsidianDark,draw=ObsidianDark] at (0,0){};
+  \end{tikzpicture}}
+\newcommand{\iconAlerta}{\begin{tikzpicture}[baseline=-0.55ex,scale=0.4]
+  \draw[white,fill=white] (0,0.72)--(-0.78,-0.58)--(0.78,-0.58)--cycle;
+  \draw[AlertRed,line width=0.9pt] (0,0.28)--(0,-0.12);
+  \fill[AlertRed] (0,-0.36) circle (0.07);
+  \end{tikzpicture}}
+\newcommand{\iconNota}{\begin{tikzpicture}[baseline=-0.55ex,scale=0.4]
+  \draw[white,line width=0.8pt] (0,0) circle (0.62);
+  \fill[white] (0,0.33) circle (0.06);
+  \draw[white,line width=0.9pt] (0,0.1)--(0,-0.36);
+  \end{tikzpicture}}
+
+% ============================================================================
+% 10. CAIXAS DE DESTAQUE (tcolorbox)
+% ============================================================================
+\tcbset{caixa/.style={enhanced,breakable,boxrule=0.5pt,arc=2pt,
+   left=8pt,right=8pt,top=5pt,bottom=5pt,before skip=10pt,after skip=10pt,
+   fonttitle=\sffamily\bfseries\small,coltitle=white}}
+
+\newtcolorbox{dica}[1][Dica de Iniciante]{caixa,colback=TipBlueLight,colframe=TipBlue,
+   colbacktitle=TipBlue,title={\iconDica\hspace{5pt}#1},borderline west={2.5pt}{0pt}{TipBlue}}
+
+\newtcolorbox{exploit}[1][Exploit \& Otimização]{caixa,colback=AmberLight,colframe=ImperialGold,
+   colbacktitle=ImperialGold,coltitle=ObsidianDark,title={\iconExploit\hspace{5pt}#1},
+   borderline west={2.5pt}{0pt}{ImperialGold}}
+
+\newtcolorbox{alerta}[1][Alerta de Bug / Cuidado]{caixa,colback=AlertRedLight,colframe=AlertRed,
+   colbacktitle=AlertRed,title={\iconAlerta\hspace{5pt}#1},borderline west={2.5pt}{0pt}{AlertRed}}
+
+\newtcolorbox{nota}[1][Nota de Verificação]{caixa,colback=PurpleLight,colframe=SoulCairnPurple,
+   colbacktitle=SoulCairnPurple,title={\iconNota\hspace{5pt}#1},
+   borderline west={2.5pt}{0pt}{SoulCairnPurple}}
+
+
+\newtcolorbox{checkpoint}[1][Ponto de Verificação]{caixa,colback=EmeraldLight,colframe=NecroEmerald,
+   colbacktitle=NecroEmerald,title={#1},borderline west={2.5pt}{0pt}{ImperialGold}}
+
+% ============================================================================
+% 11. TABELAS (booktabs + tabularx)
+% ============================================================================
+\newcolumntype{Y}{>{\raggedright\arraybackslash\small}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash\small}p{#1}}
+\newcommand{\cabec}[1]{\textcolor{white}{\sffamily\bfseries\small #1}}
+\newcommand{\tabhead}{\rowcolor{NecroEmerald}}
+\renewcommand{\arraystretch}{1.25}
+\newcommand{\figcap}[1]{\par\vspace{4pt}{\centering\sffamily\small\itshape\color{NecroEmerald} #1\par}\vspace{6pt}}
+
+% ============================================================================
+% 12. METADADOS PDF (hyperref sempre por último)
+% ============================================================================
+\usepackage[colorlinks=true,linkcolor=NecroEmerald,urlcolor=SoulCairnPurple,
+  citecolor=NecroEmerald,pdftitle={O Grimório do Necromante Furtivo},
+  pdfauthor={Guia Skyrim AE},pdfsubject={Stealth Necromancer Summoner - Skyrim Anniversary Edition}]{hyperref}
+
+% ============================================================================
+%  INÍCIO DO DOCUMENTO
+% ============================================================================
+\begin{document}
+\pagecolor{ParchmentLight}\color{ObsidianDark}
+\pagenumbering{roman}
+
+% ============================================================================
+%  CAPA EDITORIAL (100% TikZ vetorial)
+% ============================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  % --- fundo e molduras
+  \fill[ObsidianDark] (current page.south west) rectangle (current page.north east);
+  \draw[ImperialGold,line width=2pt]
+     ($(current page.south west)+(1cm,1cm)$) rectangle ($(current page.north east)-(1cm,1cm)$);
+  \draw[ImperialGold,line width=0.6pt]
+     ($(current page.south west)+(1.3cm,1.3cm)$) rectangle ($(current page.north east)-(1.3cm,1.3cm)$);
+  % --- ornamentos de canto (rodados 0/90/180/270 graus)
+  \foreach \c/\ang in {south west/0,south east/90,north east/180,north west/270}{
+    \begin{scope}[shift={(current page.\c)},rotate=\ang]
+      \fill[ImperialGold] (1.15,1.6)--(1.6,1.15)--(1.15,0.7)--(0.7,1.15)--cycle;
+      \fill[NecroEmerald] (1.15,1.4)--(1.4,1.15)--(1.15,0.9)--(0.9,1.15)--cycle;
+      \draw[ImperialGold,line width=0.8pt] (1.15,1.6)--(1.15,3.4);
+      \draw[ImperialGold,line width=0.8pt] (1.6,1.15)--(3.4,1.15);
+      \fill[ImperialGold] (1.15,3.6) circle (0.07);
+      \fill[ImperialGold] (3.6,1.15) circle (0.07);
+    \end{scope}}
+  % --- textos superiores
+  \node[text=GoldLight,font=\sffamily\small,align=center]
+     at ($(current page.center)+(0,12.4)$) {\titlefont\MakeUppercase{Skyrim Anniversary Edition}};
+  \node[text=ImperialGold,font=\titlefont\bfseries\fontsize{25}{30}\selectfont,align=center]
+     at ($(current page.center)+(0,10.6)$) {O GRIMÓRIO DO};
+  \node[text=ImperialGold,font=\titlefont\bfseries\fontsize{31}{36}\selectfont,align=center]
+     at ($(current page.center)+(0,9.1)$) {NECROMANTE FURTIVO};
+  \draw[ImperialGold,line width=0.8pt] ($(current page.center)+(-6.5,8.0)$)--($(current page.center)+(-0.5,8.0)$);
+  \fill[ImperialGold] ($(current page.center)+(0,8.18)$)--($(current page.center)+(0.18,8.0)$)--
+                      ($(current page.center)+(0,7.82)$)--($(current page.center)+(-0.18,8.0)$)--cycle;
+  \draw[ImperialGold,line width=0.8pt] ($(current page.center)+(0.5,8.0)$)--($(current page.center)+(6.5,8.0)$);
+  \node[text=GoldLight,font=\sffamily\large\itshape,align=center]
+     at ($(current page.center)+(0,7.0)$) {Guia completo, passo a passo, para dominar\\ o arquétipo Stealth Necromancer Summoner};
+  % --- emblema geométrico de Conjuração
+  \begin{scope}[shift={($(current page.center)+(0,0.9)$)}]
+    \draw[ImperialGold,line width=1.4pt] (0,0) circle (4.2);
+    \draw[ImperialGold,line width=0.5pt] (0,0) circle (4.05);
+    \draw[ImperialGold,line width=0.8pt] (0,0) circle (3.4);
+    \foreach \a in {0,10,...,350}{\draw[ImperialGold!75,line width=0.5pt] (\a:3.5)--(\a:3.95);}
+    \draw[NecroEmerald!80!white,line width=1.2pt] (0,0) circle (2.95);
+    \draw[ImperialGold,line width=1pt] (90:3.0)--(210:3.0)--(330:3.0)--cycle;
+    \draw[ImperialGold,line width=1pt] (270:3.0)--(30:3.0)--(150:3.0)--cycle;
+    \draw[NecroEmerald!70!white,dashed,line width=0.8pt] (0,0) circle (1.75);
+    \foreach \a in {90,150,210,270,330,30}{
+      \node[circle,draw=ImperialGold,fill=NecroEmerald,line width=1pt,minimum size=0.62cm,inner sep=0pt]
+        at (\a:3.0){};
+      \fill[GoldLight] (\a:3.0) circle (0.09);}
+    % caveira central
+    \begin{scope}[shift={(0,0.15)}]
+      \draw[ImperialGold,fill=GoldLight,line width=1pt] (0,0.2) circle (0.85);
+      \draw[ImperialGold,fill=GoldLight,line width=1pt,rounded corners=2pt] (-0.5,-0.45) rectangle (0.5,-0.95);
+      \fill[ObsidianDark] (-0.33,0.25) circle (0.24);
+      \fill[ObsidianDark] (0.33,0.25) circle (0.24);
+      \fill[ObsidianDark] (0,-0.12)--(-0.1,-0.32)--(0.1,-0.32)--cycle;
+      \foreach \x in {-0.3,-0.1,0.1,0.3}{\draw[ObsidianDark,line width=0.6pt] (\x,-0.62)--(\x,-0.95);}
+    \end{scope}
+  \end{scope}
+  % --- faixa das quatro fases
+  \foreach \x/\t in {-5.7/EARLY 1--10,-1.9/MID 11--25,1.9/LATE 26--45,5.7/END 46+}{
+    \node[draw=ImperialGold,rounded corners=3pt,minimum width=3.4cm,minimum height=0.9cm,
+          text=GoldLight,font=\sffamily\small\bfseries,line width=0.8pt]
+      at ($(current page.center)+(\x,-5.6)$) {\t};}
+  \node[text=GoldLight,font=\sffamily\normalsize,align=center]
+     at ($(current page.center)+(0,-7.3)$) {Invocação \textbullet\ Furtividade \textbullet\ Ilusão};
+  \node[text=ImperialGold,font=\sffamily\small\itshape,align=center]
+     at ($(current page.center)+(0,-8.6)$) {Rota de progressão para iniciantes\\ com mapas, diagramas e tabelas};
+  \node[text=GoldLight!70!ObsidianDark,font=\sffamily\scriptsize,align=center]
+     at ($(current page.center)+(0,-12.4)$) {Edição XeLaTeX \textbullet\ Todos os gráficos em TikZ \textbullet\ 2026};
+\end{tikzpicture}
+\end{titlepage}
+
+% ============================================================================
+%  SUMÁRIO
+% ============================================================================
+\begingroup\renewcommand{\contentsname}{Sumário}
+\tableofcontents
+\endgroup
+\clearpage
+\pagenumbering{arabic}
+
+% ============================================================================
+%  CAPÍTULO 1 — ANTES DE COMEÇAR
+% ============================================================================
+\chapter{Antes de Começar}
+
+\section{Para quem é este guia}
+Este manual foi escrito para quem está começando em \emph{The Elder Scrolls V: Skyrim Anniversary Edition} (AE) e quer jogar com um estilo muito poderoso e divertido: um mago que \textbf{invoca mortos-vivos para lutar por ele enquanto fica invisível nas sombras}. Você não precisa conhecer nada de Skyrim para acompanhar: cada passo diz \emph{onde ir}, \emph{com quem falar} e \emph{o que fazer}, em ordem cronológica.
+
+A estrutura segue quatro fases de progressão: \textbf{Early Game} (níveis 1--10), \textbf{Mid Game} (11--25), \textbf{Late Game} (26--45) e \textbf{End-Game} (46+). Cada fase termina com um ``ponto de verificação'' para você conferir se está pronto para avançar.
+
+\section{O que você precisa ter}
+\begin{itemize}
+  \item \textbf{Skyrim Anniversary Edition} (inclui o jogo base, \emph{Dawnguard}, \emph{Hearthfire}, \emph{Dragonborn} e o pacote de conteúdos do Creation Club).
+  \item Conteúdos do Creation Club usados na rota: \objeto{Necromantic Grimoire}, \objeto{Bow of Shadows}, \objeto{Arcane Accessories}, \objeto{Myrwatch}, \objeto{Farming} (Goldenhills Plantation) e \objeto{Bloodchill Manor}. O \objeto{Arcane Archer Pack} é opcional.
+  \item Nenhum mod é necessário. Todo o guia usa apenas conteúdo oficial.
+\end{itemize}
+
+\begin{nota}[Como este guia foi conferido]
+Os nomes, locais, níveis e efeitos foram cruzados com fontes públicas (UESP e outras wikis) para esta edição. Onde uma informação \emph{não pôde ser confirmada}, o texto diz isso claramente, em vez de afirmar sem certeza. O Apêndice~A lista as correções feitas em relação a alguns ``mitos'' comuns da comunidade. Patches futuros podem alterar detalhes: em caso de dúvida, confira no jogo.
+\end{nota}
+
+\section{Como ler as caixas de destaque}
+\begin{dica}
+Dicas simples para quem está começando: atalhos, hábitos seguros e explicações sem jargão.
+\end{dica}
+\begin{exploit}
+Truques de evolução e otimização (loops de nível, economia, encantamentos). Todos funcionam apenas no seu jogo offline.
+\end{exploit}
+\begin{alerta}
+Avisos de bugs conhecidos, quests que podem travar e decisões irreversíveis. \textbf{Salve em um slot separado antes}.
+\end{alerta}
+
+\section{Mini-glossário de sobrevivência}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{3.3cm}Y@{}}
+\tabhead \cabec{Termo} & \cabec{Significado} \\
+\toprule
+\textbf{Magicka} & Sua ``energia mágica'': cada feitiço gasta Magicka, que regenera sozinha com o tempo. \\
+\textbf{Perk} & Habilidade especial que você compra com pontos ao subir de nível (ex.: Twin Souls). \\
+\textbf{Agro} & Quando um inimigo ``decide'' atacar você. Na build, o objetivo é que ele ataque suas invocações. \\
+\textbf{Sneak} & Modo furtivo (agachado). Enquanto escondido, inimigos não o veem. \\
+\textbf{Invocação} & Criatura chamada por feitiço de Conjuration, com duração limitada (geralmente 60 s). \\
+\textbf{Reanimar} & Feitiço que levanta um cadáver para lutar por você. \\
+\textbf{Seguidor} & NPC permanente que o acompanha (ex.: Serana). \\
+\textbf{Loot} & Itens que você recolhe de corpos, baús e masmorras. \\
+\textbf{Level scaling} & Inimigos e itens ficam mais fortes conforme o \emph{seu} nível. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{dica}[Regra de ouro: salve muito]
+Use \textbf{salvamento manual} em slots diferentes antes de cada quest importante e antes de entrar em masmorras. Se algo travar ou der errado, você volta sem perder horas.
+\end{dica}
+
+
+% ============================================================================
+%  CAPÍTULO 2 — ANATOMIA DA BUILD
+% ============================================================================
+\chapter{Anatomia da Build}
+
+\section{O conceito em uma frase}
+O \textbf{Stealth Necromancer Summoner} combina três escolas do jogo: \textbf{Conjuração} (você chama aliados), \textbf{Ilusão} (você abafa sons, fica invisível e lança feitiços sem ser notado) e \textbf{Furtividade} (você fica nas sombras e ataca de longe). O resultado: o exército luta na linha de frente, enquanto você observa do escuro, com o \objeto{Bow of Shadows} no punho para ficar invisível ao sacar o arco.
+
+\section{Mapa de sinergia da build}
+\Needspace{11cm}
+\begin{center}
+\begin{tikzpicture}[
+  hub/.style={circle,draw=ImperialGold,line width=1.4pt,fill=ObsidianDark,text=white,
+              align=center,minimum size=3.2cm,font=\sffamily\bfseries\small,inner sep=2pt},
+  pil/.style={rounded corners=5pt,draw=ImperialGold,line width=0.9pt,fill=EmeraldLight,
+              text=ObsidianDark,align=center,text width=4.2cm,minimum height=2.0cm,
+              font=\sffamily\footnotesize,inner sep=5pt},
+  res/.style={rounded corners=5pt,draw=SoulCairnPurple,line width=1pt,fill=PurpleLight,
+              text=ObsidianDark,align=center,text width=8.4cm,minimum height=1.2cm,
+              font=\sffamily\footnotesize\bfseries,inner sep=5pt},
+  flow/.style={-{Stealth[length=2.6mm]},line width=1pt,color=NecroEmerald},
+  lab/.style={midway,fill=ParchmentLight,inner sep=1.5pt,font=\sffamily\scriptsize\itshape,
+              text=SoulCairnPurple}]
+  \node[hub] (hub) at (0,0) {Stealth\\Necromancer\\Summoner};
+  \node[pil] (sn) at (-5.0,2.9) {\textbf{Furtividade (Sneak)}\\Muffled Movement\\Backstab, Deadly Aim};
+  \node[pil] (il) at (5.0,2.9)  {\textbf{Ilusão (Illusion)}\\Muffle, Fenrik's Welcome\\Quiet Casting};
+  \node[pil] (co) at (-5.0,-2.9) {\textbf{Conjuração / Necromancia}\\Twin Souls, Bone Colossus\\Undying Ghost, Deathpriest};
+  \node[pil] (ar) at (5.0,-2.9) {\textbf{Arco + Invisibilidade}\\Bow of Shadows\\Bound Bow (alternativa)};
+  \node[res] (rs) at (0,-5.7) {Resultado: um exército de mortos-vivos luta por você, enquanto você permanece oculto};
+  \draw[flow] (sn) -- node[lab]{passos silenciosos} (hub);
+  \draw[flow] (il) -- node[lab]{feitiços silenciosos} (hub);
+  \draw[flow] (co) -- node[lab]{exército} (hub);
+  \draw[flow] (ar) -- node[lab]{invisível ao sacar} (hub);
+  \draw[flow] (hub) -- node[lab]{controle do campo} (rs);
+\end{tikzpicture}
+\end{center}
+\figcap{Figura 1. Como as quatro peças se encaixam em torno da identidade da build.}
+
+\Needspace{8cm}
+\section{Escolha de raça}
+A raça influencia os primeiros níveis e a sobrevivência. Qualquer uma das três abaixo funciona muito bem.
+
+\begin{center}
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{2.4cm}Y Y@{}}
+\tabhead \cabec{Raça} & \cabec{Bônus principal} & \cabec{Por que escolher} \\
+\toprule
+\textbf{Breton} & 25\% de resistência a magia e o poder \magia{Dragonskin} (reduz o dano mágico recebido por um período) & Muito seguro contra magos inimigos; ótimo para iniciantes. \\
+\textbf{Altmer (High Elf)} & +50 de Magicka inicial (\perk{Highborn}) e poder racial de recuperação de Magicka & Mais Magicka já no nível 1: mais invocações logo no começo. \\
+\textbf{Dunmer (Dark Elf)} & \magia{Ancestor's Wrath} (aura de fogo) e 50\% de resistência a fogo & Boa defesa contra fogo e boa opção se você pretende virar vampiro mais tarde. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Distribuição de atributos}
+A cada nível você ganha \textbf{+10 em Magicka, Health ou Stamina}. Esta tabela é um roteiro de referência (não uma regra rígida).
+
+\begin{center}
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{2.6cm}L{2.7cm}Y@{}}
+\tabhead \cabec{Faixa de nível} & \cabec{Proporção M:H:S} & \cabec{Objetivo} \\
+\toprule
+1 a 15 & 1:0:0 (tudo em Magicka) & Juntar Magicka suficiente para conjurar sem ficar vazio. \\
+16 a 30 & 2:1:0 & Manter Magicka alta e começar a ganhar vida. \\
+31 a 45 & 1:1:0 & Equilíbrio: as invocações já fazem boa parte do trabalho. \\
+46+ & 1:2:0 & Foco em Health para sobreviver a surpresas. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Stamina fica em 0 de investimento: poções e equipamento cobrem sprint e peso. Quando seu Magicka estiver confortável (o suficiente para lançar suas invocações principais e ainda sobrar), pare de acumular e vá para Health.
+
+\section{Como funciona o limite de invocações}
+Esta é a parte mais importante da build. Entenda cada peça:
+
+\begin{itemize}
+  \item \textbf{Regra padrão:} sem perks, você mantém \textbf{uma} criatura invocada \emph{ou} um morto reanimado por vez.
+  \item \textbf{\perk{Twin Souls} (Conjuration 100):} permite \textbf{duas} criaturas ao mesmo tempo (atronaques, reanimados e criaturas semelhantes). Exige ter \perk{Dark Souls} \emph{ou} \perk{Elemental Potency}.
+  \item \textbf{\magia{Conjure Bone Colossus}} (Necromantic Grimoire, Master): invoca um Colosso de Ossos por 60~s. Enquanto ele estiver ativo, \textbf{você pode invocar 2 esqueletos adicionais}, e seus esqueletos regeneram vida. Só pode existir 1 colosso por vez.
+  \item \textbf{Esqueletos extras:} os esqueletos vêm de feitiços do mesmo pacote: \magia{Conjure Skeleton Champion}, \magia{Skeleton Marksman}, \magia{Skeleton Minion} e \magia{Skeleton Warlock}.
+  \item \textbf{\magia{Conjure Undying Ghost}} e \textbf{\magia{Conjure Ancient Deathpriest}} somam poder por 60~s (o fantasma consome toda a sua Magicka e fica mais forte quanto mais você gastou).
+  \item \textbf{Seguidor e animal:} um seguidor humano (como Serana) e um animal de companhia (cachorro, por exemplo) \emph{não} contam como criaturas invocadas.
+\end{itemize}
+
+\begin{alerta}[Teste antes da luta importante]
+A interação exata entre Twin Souls, Colosso e os demais feitiços pode variar e, em casos relatados, uma nova invocação pode ``empurrar para fora'' uma criatura antiga. \textbf{Teste dentro da sua casa} (um lugar seguro): invoque tudo e conte quantas criaturas permanecem, antes de depender disso numa luta difícil.
+\end{alerta}
+
+\begin{center}
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{2.3cm}Y L{2.5cm}@{}}
+\tabhead \cabec{Fase} & \cabec{Composição esperada do exército} & \cabec{Aliados} \\
+\toprule
+Early (1--10) & 1 invocação + 1 seguidor & 2 \\
+Mid (11--25) & Twin Souls: 2 invocações + seguidor & 3 \\
+Late (26--45) & 2 invocações + seguidor + animal de companhia & 4 \\
+End (46+) & Colosso + 2 esqueletos + outra invocação + seguidor + animal & 6 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\Needspace{9cm}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[name=a1,width=7.6cm,height=6.2cm,
+  title={\sffamily\small Aliados em campo},
+  ybar,bar width=8pt,ymin=0,ymax=8,
+  xtick={1,2,3,4},xticklabels={Early,Mid,Late,End},
+  ylabel={\sffamily\scriptsize Entidades},
+  ymajorgrids,grid style={ImperialGold!35},
+  tick label style={font=\sffamily\scriptsize},
+  legend style={at={(0.5,-0.2)},anchor=north,legend columns=1,font=\sffamily\scriptsize,draw=none},
+  enlarge x limits=0.18,nodes near coords,nodes near coords style={font=\sffamily\tiny}]
+\addplot[fill=NecroEmerald,draw=NecroEmerald!80!black] coordinates {(1,1)(2,2)(3,2)(4,4)};
+\addplot[fill=ImperialGold,draw=ImperialGold!80!black] coordinates {(1,2)(2,3)(3,4)(4,6)};
+\legend{Invocações simultâneas,Total com seguidor e animal}
+\end{axis}
+\begin{axis}[at={(a1.east)},anchor=west,xshift=1.5cm,width=7.0cm,height=6.2cm,
+  title={\sffamily\small Redução de custo de Magicka},
+  ymin=0,ymax=100,xtick={1,2,3,4},xticklabels={Early,Mid,Late,End},
+  ylabel={\sffamily\scriptsize Redução (\%)},
+  ymajorgrids,grid style={ImperialGold!35},
+  tick label style={font=\sffamily\scriptsize},
+  enlarge x limits=0.15,
+  nodes near coords,point meta=y,nodes near coords style={font=\sffamily\tiny,above}]
+\addplot[mark=*,color=SoulCairnPurple,very thick] coordinates {(1,25)(2,50)(3,75)(4,85)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\figcap{Figura 2. Evolução planejada do exército e do custo de Magicka. Valores de planejamento (ilustrativos): o teto de redução de custo no jogo é de 85\%.}
+
+\Needspace{15cm}
+\section{Árvore de perks essenciais}
+Os \emph{perks} são o coração da build. A figura abaixo mostra o que é \textbf{obrigatório} (dourado) e o que é \textbf{opcional/recomendado} (tracejado). As linhas indicam apenas pré-requisitos confirmados; os demais perks podem ser comprados na ordem que você preferir.
+
+\Needspace{14cm}
+\begin{center}
+\begin{tikzpicture}[
+  base/.style={rounded corners=3pt,align=center,font=\sffamily\scriptsize,inner sep=2pt,
+               minimum height=0.85cm,text width=2.45cm,text=ObsidianDark},
+  must/.style={base,draw=ImperialGold!80!black,fill=ImperialGold!32,line width=1.2pt},
+  opt/.style={base,draw=SoulCairnPurple!70,fill=white,dash pattern=on 3pt off 2pt,line width=0.8pt},
+  req/.style={-{Stealth[length=2mm]},line width=0.9pt,color=NecroEmerald},
+  grp/.style={anchor=west,font=\sffamily\bfseries\scriptsize,text=NecroEmerald}]
+  % --- Conjuração
+  \node[grp] at (-7.6,0.95) {CONJURAÇÃO (prioridade máxima)};
+  \node[must] (n1) at (-6.4,0)   {Novice Conjuration};
+  \node[must] (n2) at (-3.2,0)   {Apprentice Conjuration};
+  \node[must] (n3) at (0,0)      {Adept Conjuration};
+  \node[must] (n4) at (3.2,0)    {Expert Conjuration};
+  \node[must] (n5) at (6.4,0)    {Master Conjuration};
+  \draw[req] (n1)--(n2); \draw[req] (n2)--(n3); \draw[req] (n3)--(n4); \draw[req] (n4)--(n5);
+  \node[must] (ne) at (-6.4,-1.8) {Necromancy};
+  \node[must] (ds) at (-3.2,-1.8) {Dark Souls};
+  \node[must] (at) at (0,-1.8)    {Atromancy};
+  \node[opt]  (ep) at (3.2,-1.8)  {Elemental Potency};
+  \node[must] (ts) at (6.4,-1.8)  {\textbf{Twin Souls}\\(Conj.\ 100)};
+  \draw[req] (n1.south)--(ne.north);
+  \draw[req] (ne)--(ds);
+  \draw[req] (at)--(ep);
+  \draw[req] (ep)--(ts);
+  \draw[req] (ds.south)--++(0,-0.75)-|(ts.south);
+  \node[must] (su) at (-6.4,-3.65) {Summoner (2/2)};
+  % --- Ilusão
+  \node[grp] at (-7.6,-4.85) {ILUSÃO (suporte furtivo)};
+  \node[must] at (-6.4,-5.8) {Novice a Expert Illusion};
+  \node[must] at (-3.2,-5.8) {Animage};
+  \node[must] at (0,-5.8)    {Kindred Mage};
+  \node[must] at (3.2,-5.8)  {\textbf{Quiet Casting}\\(obrigatório)};
+  \node[opt]  at (6.4,-5.8)  {Master of the Mind};
+  % --- Furtividade
+  \node[grp] at (-7.6,-7.05) {FURTIVIDADE (Sneak) E ARCHERY};
+  \node[must] at (-6.4,-8.0) {Stealth (1/5 a 5/5)};
+  \node[must] at (-3.2,-8.0) {Muffled Movement};
+  \node[must] at (0,-8.0)    {Deadly Aim\\(3$\times$ dano com arco)};
+  \node[opt]  at (3.2,-8.0)  {Backstab};
+  \node[opt]  at (6.4,-8.0)  {Silent Roll};
+  \node[opt]  at (-6.4,-9.3) {Shadow Warrior};
+  \node[opt]  at (-3.2,-9.3) {Overdraw};
+  \node[opt]  at (0,-9.3)    {Eagle Eye};
+  \node[opt]  at (3.2,-9.3)  {Steady Hand};
+  % --- Encantamento
+  \node[grp] at (-7.6,-10.5) {UTILIDADE: ENCANTAMENTO};
+  \node[must] at (-6.4,-11.45) {Enchanter (5/5)};
+  \node[opt]  at (-3.2,-11.45) {Insightful Enchanter};
+  \node[opt]  at (0,-11.45)    {Corpus Enchanter};
+  \node[opt]  at (3.2,-11.45)  {Extra Effect};
+  % --- legenda
+  \node[must,text width=1.6cm,minimum height=0.55cm] at (-3.4,-12.7) {Obrigatório};
+  \node[opt,text width=1.6cm,minimum height=0.55cm]  at (-0.9,-12.7) {Opcional};
+\end{tikzpicture}
+\end{center}
+\figcap{Figura 3. Árvore simplificada de perks. Pré-requisitos de Twin Souls: Conjuration 100 e Dark Souls \emph{ou} Elemental Potency.}
+
+\begin{dica}[Quiet Casting e invisibilidade]
+\perk{Quiet Casting} faz seus feitiços ficarem silenciosos. Sem ele, o barulho de uma invocação pode revelar sua posição. Combine com \magia{Muffle} (passos mudos) e com o \objeto{Bow of Shadows} (invisibilidade ao sacar).
+\end{dica}
+
+\begin{checkpoint}[Fim do Capítulo 2]
+Você já sabe: a identidade da build, qual raça escolher, como distribuir atributos, como funciona o limite de invocações e quais perks priorizar. No próximo capítulo vamos executar: do início do jogo ao nível 10.
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 3 — MAPA DA ROTA E EARLY GAME (NÍVEIS 1--10)
+% ============================================================================
+\chapter{Mapa da Rota e Early Game}
+
+\section{A rota em uma página}
+Antes de entrar nos detalhes, veja o mapa geral da jornada. Cada marco é detalhado nos próximos capítulos.
+
+\Needspace{17cm}
+\begin{center}
+\begin{tikzpicture}[
+  ph/.style={circle,draw=ImperialGold,line width=1.6pt,fill=ObsidianDark,text=ImperialGold,
+             minimum size=1.15cm,font=\sffamily\bfseries\normalsize,inner sep=0pt},
+  bx/.style={rounded corners=4pt,draw=ImperialGold,line width=0.8pt,fill=white,text width=11.6cm,
+             align=left,inner sep=6pt,font=\sffamily\footnotesize,anchor=west}]
+  \draw[ImperialGold,line width=2.6pt] (0,0.7)--(0,-13.9);
+  \node[ph] at (0,0) {I};
+  \node[bx] at (0.95,0) {\textbf{\textcolor{NecroEmerald}{EARLY GAME \textbullet\ Níveis 1--10}}\\
+    \textbullet\ Fuga de Helgen, Guardian Stones (Mage Stone) e chegada a Whiterun\\
+    \textbullet\ Quest \emph{In the Shadows} $\rightarrow$ \textbf{Bow of Shadows}\\
+    \textbullet\ Aprender \emph{Muffle}; começar os loops de evolução de Conjuration e Illusion\\
+    \textbullet\ Moradia gratuita: \textbf{Myrwatch} (ou Goldenhills Plantation)};
+  \node[ph] at (0,-3.6) {II};
+  \node[bx] at (0.95,-3.6) {\textbf{\textcolor{NecroEmerald}{MID GAME \textbullet\ Níveis 11--25}}\\
+    \textbullet\ Colégio de Winterhold: \textbf{Phinis Gestor} (Conjuration) e \textbf{Drevis Neloren} (Illusion)\\
+    \textbullet\ Quest \emph{Blood on the Ice} (Windhelm) $\rightarrow$ \textbf{Necromancer's Amulet}\\
+    \textbullet\ Máscara \textbf{Vokun} (High Gate Ruins); \emph{Fenrik's Welcome}\\
+    \textbullet\ \textbf{Twin Souls} (Conjuration 100): dois aliados invocados};
+  \node[ph] at (0,-7.4) {III};
+  \node[bx] at (0.95,-7.4) {\textbf{\textcolor{NecroEmerald}{LATE GAME \textbullet\ Níveis 26--45}}\\
+    \textbullet\ Quest \emph{The Black Star} $\rightarrow$ \textbf{Azura's Star} (gema reutilizável)\\
+    \textbullet\ \emph{Dawnguard}: Serana, Soul Cairn e feitiços de invocação\\
+    \textbullet\ \emph{Dragonborn} (Solstheim) e Black Books; \emph{Pride of Hirstaang}\\
+    \textbullet\ Encantamentos que levam o custo de Conjuration perto do teto de 85\%};
+  \node[ph] at (0,-11.2) {IV};
+  \node[bx] at (0.95,-11.2) {\textbf{\textcolor{NecroEmerald}{END-GAME \textbullet\ Nível 46+}}\\
+    \textbullet\ Estoque completo de \textbf{Phinis Gestor}: \emph{Conjure Bone Colossus} e \emph{Ancient Deathpriest}\\
+    \textbullet\ \textbf{Ascendant Necromancer Robes} (saque de necromantes-chefe)\\
+    \textbullet\ Exército de 4+ invocações + seguidor + animal\\
+    \textbullet\ Conjunto final de equipamento e encantamentos (tabela do Cap.~7)};
+\end{tikzpicture}
+\end{center}
+\figcap{Figura 4. Linha do tempo da rota completa em quatro fases.}
+
+\section{Passo 1: a fuga de Helgen}
+O jogo começa com você prisioneiro numa carroça, a caminho da execução, quando um dragão ataca a cidade de \lugar{Helgen}. Você precisa escolher com quem escapar:
+
+\begin{itemize}
+  \item \npc{Hadvar} (soldado do Império) ou \npc{Ralof} (rebelde Stormcloak). \textbf{Os dois caminhos funcionam}: ambos levam você até \lugar{Riverwood}. A escolha só muda aliados e o tom da guerra civil mais tarde.
+  \item Pegue o que encontrar (poções, armas simples, ouro) e aprenda a abrir portas e baús. No menu \textbf{Magic}, equipe \magia{Flames} em uma mão e \magia{Healing} na outra.
+  \item Na saída pode haver um urso numa caverna. É \emph{opcional} e perigoso para o nível 1: evite se não tiver cura sobrando.
+\end{itemize}
+
+\begin{dica}[Sobrevivendo ao nível 1]
+Mantenha-se agachado (\textbf{Sneak}) e longe de lutas corpo a corpo. Atire \magia{Flames} de longe, use \magia{Healing} cedo (não espere ficar com pouca vida) e fuja para recuperar Magicka.
+\end{dica}
+
+\section{Passo 2: Guardian Stones (Mage Stone)}
+No caminho entre Helgen e Riverwood, ao lado da estrada a sudoeste de Riverwood e a leste do Lago Ilinalta, ficam as três \lugar{Guardian Stones}: Mage, Thief e Warrior. \textbf{Ative a Mage Stone}: ela faz todas as habilidades mágicas (incluindo Conjuration, Illusion e Enchanting) subirem \textbf{20\% mais rápido}. Só um ``signo'' fica ativo por vez; você pode trocar depois.
+
+\begin{center}
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{2.6cm}Y L{4.2cm}@{}}
+\tabhead \cabec{Standing Stone} & \cabec{Efeito} & \cabec{Onde fica} \\
+\toprule
+\textbf{Mage Stone} & Habilidades mágicas sobem 20\% mais rápido. & Guardian Stones, perto de Riverwood \\
+\textbf{Ritual Stone} & Reanima cadáveres próximos uma vez por dia. & A leste de Whiterun, ao sul do rio \\
+\textbf{Shadow Stone} & Invisibilidade por 60 s, uma vez por dia. & Ao sul de Riften \\
+\textbf{Apprentice Stone} & Recuperação de Magicka muito mais rápida (mas fraqueza a magia). & Ao sul de Solitude \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Comece com a Mage Stone. Mais tarde, a Ritual Stone é uma boa curiosidade para necromantes.
+
+\section{Passo 3: Riverwood e a viagem a Whiterun}
+Em \lugar{Riverwood}, descanse e compre poções básicas. A quest principal pedirá que você avise o Jarl de \lugar{Whiterun} sobre o dragão. Siga a estrada para o norte até \lugar{Whiterun} e suba ao topo da cidade: o palácio do Jarl se chama \lugar{Dragonsreach}.
+
+\Needspace{6cm}
+\section{Passo 4: a quest \emph{In the Shadows} e o Bow of Shadows}
+\begin{exploit}[Seu arco de invisibilidade (Creation Club)]
+O \objeto{Bow of Shadows} saca \textbf{20\% mais rápido} e lança \textbf{Invisibilidade por 30 segundos} ao ser sacado. Para a build, ele é o seu ``botão de sumir'': saque, atire de dentro da invisibilidade e deixe as invocações lutarem.
+\end{exploit}
+
+\begin{enumerate}
+  \item Entre em \lugar{Dragonsreach} e fale com o \npc{Proventus Avenicci}, o administrador (steward) do Jarl. Pergunte se há algo de que ele precise.
+  \item A quest \quest{In the Shadows} é sobre \textbf{salvar o Jarl de uma conspiração de assassinato}. Ela passa por Whiterun e pode levar você ao acampamento \lugar{Silent Moons Camp}, perto da cidade.
+  \item Siga a pista do assassino. O desfecho acontece \textbf{dentro de Dragonsreach}: elimine-o e pegue o \objeto{Bow of Shadows}.
+  \item Volte ao Proventus para receber a recompensa em ouro.
+\end{enumerate}
+
+\begin{alerta}
+Há relatos de o assassino não aparecer corretamente nessa quest. Se isso acontecer, \textbf{carregue um salvamento anterior} e repita a conversa com Proventus. Evite viajar rápido para longe enquanto a quest está ativa. E lembre-se: os conteúdos do Creation Club na AE \emph{não} iniciam a quest sozinhos; é preciso falar com o NPC indicado.
+\end{alerta}
+
+\begin{dica}
+O Bow of Shadows exige que você consiga manejar um arco. Gaste os primeiros pontos de perk em \perk{Stealth} e \perk{Deadly Aim}, e pratique de longe. Procure \textbf{flechas} em vendedores e em saques.
+\end{dica}
+
+\section{Passo 5: aprender Muffle e primeiros feitiços}
+Visite \npc{Farengar Secret-Fire}, o mago da corte, em Dragonsreach, e veja o estoque de feitiços. O estoque de vendedores muda com o tempo e com o seu nível, então confira:
+\begin{itemize}
+  \item \textbf{Conjuration:} feitiços iniciais de invocação e reanimação (como \magia{Conjure Familiar} e \magia{Reanimate}), se disponíveis.
+  \item \textbf{Illusion:} \magia{Muffle} (passos silenciosos) é o feitiço-chave para o seu estilo furtivo e um excelente feitiço para subir Illusion. Se Farengar não vender, procure magos vendedores em outras cidades ou o Colégio de Winterhold.
+\end{itemize}
+
+\Needspace{10cm}
+\section{Passo 6: sua moradia gratuita}
+Uma casa dá local seguro para guardar itens, dormir e criar equipamento. Estas três moradias do Anniversary Edition são gratuitas (não exigem comprar nada):
+
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{2.2cm}L{3.0cm}Y@{}}
+\tabhead \cabec{Moradia} & \cabec{Localização} & \cabec{Como liberar e quando ir} \\
+\toprule
+\textbf{Myrwatch} & Região de Hjaalmarch (os pântanos de Morthal) & Chegue à torre, pegue o diário de Hans e \textbf{lance um feitiço de fogo (Flames serve) no selo}. Um \emph{chaurus} guarda o local: vá com pelo menos nível 5--8. Tem alquimia, encantador arcano com caveira e expositores. \textbf{Melhor primeira casa para magos.} \\
+\textbf{Goldenhills Plantation} & A leste de Rorikstead & Ao entrar na fazenda, começa a quest \quest{The Unquiet Dead} (espíritos inquietos). Depois, a linha \quest{A Farmer's Life For Me} desenvolve a fazenda. Renda modesta, boa para o longo prazo. \\
+\textbf{Bloodchill Manor} & Bloodchill Cavern, a sudoeste de Winterhold & Uma carta de mensageiro chega por volta do \textbf{nível 12} e inicia \quest{Guests for Dinner} (um jantar de vampiros). \textbf{Perigoso}: deixe para a Mid Game. Tem uma panela de fundição. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{alerta}[Bloodchill Manor: vá preparado]
+Os anfitriões são vampiros. Antes de entrar: salve, tenha poções de cura, invoque seus aliados \emph{antes} de interagir, lute em corredores estreitos (onde só um inimigo alcança você por vez) e prepare uma poção ou feitiço para curar doenças.
+\end{alerta}
+
+\section{Passo 7: seus primeiros 10 níveis}
+Cada nível exige que suas habilidades \emph{subam}. Este é o plano simples de perks:
+\begin{enumerate}
+  \item \textbf{Nível 2--4:} \perk{Novice Conjuration}, \perk{Apprentice Conjuration} e \perk{Stealth}.
+  \item \textbf{Nível 5--7:} \perk{Necromancy}, \perk{Deadly Aim} (arco) e \perk{Novice Illusion}.
+  \item \textbf{Nível 8--10:} \perk{Summoner} e \perk{Muffled Movement}.
+\end{enumerate}
+Use seu estilo de jogo: fique agachado, \emph{invoque} um aliado antes de qualquer luta e deixe-o chamar a atenção.
+
+\begin{checkpoint}[Checklist do Early Game]
+\begin{itemize}
+  \item Mage Stone ativa.
+  \item Bow of Shadows em mãos e quest \emph{In the Shadows} concluída.
+  \item \magia{Muffle} aprendido (ou plano para obtê-lo).
+  \item Casa gratuita liberada (Myrwatch recomendada).
+  \item Conjuration e Illusion em evolução (veja o próximo capítulo).
+\end{itemize}
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 4 — EVOLUÇÃO ACELERADA E ECONOMIA
+% ============================================================================
+\chapter{Evolução Acelerada e Economia}
+
+Estes métodos são \textbf{truques de ``farm'' (loops)} para subir habilidades mais rápido em jogo offline. Use com moderação: subir demais cedo faz o jogo ficar mais difícil, porque \textbf{inimigos escalam com o seu nível}. Um bom equilíbrio é manter o \emph{nível do personagem} baixo e as \emph{habilidades} altas.
+
+\section{Conjuration rápido: o loop do Soul Trap em cadáveres}
+\begin{exploit}[Loop de Conjuration (Soul Trap em cadáver)]
+\textbf{Ideia:} lançar \magia{Soul Trap} em um cadáver gasta Magicka, e o uso do feitiço dá experiência de Conjuration.
+\begin{enumerate}
+  \item Mate um inimigo fraco (um lobo ou bandido).
+  \item Lance \magia{Soul Trap} \textbf{no corpo} repetidamente até zerar a Magicka.
+  \item Use a opção \textbf{Wait} (esperar) por 1 hora para recuperar a Magicka.
+  \item Repita. Com a \textbf{Mage Stone}, os \perk{perks} de Conjuration e equipamentos que reduzem o custo, a evolução fica mais eficiente.
+\end{enumerate}
+\end{exploit}
+
+\begin{dica}
+Alterne com feitiços de invocação reais: lançar \magia{Conjure Familiar} ou invocar um atronaque também dá experiência de Conjuration, e você ganha um aliado de bônus. Com Conjuration em 100, o próximo passo é comprar \perk{Twin Souls}.
+\end{dica}
+
+\section{Illusion rápido}
+\begin{enumerate}
+  \item Lance \magia{Muffle} várias vezes: é barato e dura bastante, então renove antes de acabar.
+  \item Quanto \emph{mais caro} for o feitiço de Illusion que você conhece, mais experiência ele dá por lançamento. Ao comprar feitiços como \magia{Fenrik's Welcome} (Capítulo~5), alterne-os com o Muffle.
+  \item Descanse (Wait) para recuperar a Magicka e continue.
+\end{enumerate}
+
+\begin{dica}
+Lançar feitiços de Illusion em NPCs hostis ou em lugares seguros funciona igual: o que conta é o uso do feitiço. Se quiser mais estabilidade, treine em casa.
+\end{dica}
+
+\Needspace{7cm}
+\section{Encantamento: seu motor de poder}
+O \textbf{Enchanting} é o que torna a build barata e eficiente em Magicka. O processo legítimo e seguro:
+\begin{enumerate}
+  \item \textbf{Aprenda encantamentos} desencantando itens (no \emph{Arcane Enchanter} de Myrwatch ou em qualquer bancada de encantamento). Procure \textit{Fortify Conjuration}, \textit{Fortify Illusion}, \textit{Fortify Magicka} e feitiços de redução de custo.
+  \item \textbf{Capture almas} com \magia{Soul Trap} ou compre gemas de alma cheias de vendedores.
+  \item \textbf{Crie equipamento encantado}: capuz, robe, luvas, botas, amuleto e anel (veja a tabela do Cap.~7).
+  \item \textbf{Teto de custo:} o jogo limita a redução do custo de Magicka em \textbf{85\%}. Não precisa passar disso.
+\end{enumerate}
+
+\begin{exploit}[Soul Gem reutilizável: a Black Star]
+Na quest \quest{The Black Star} (\lugar{Azura's Shrine}, a leste de Dawnstar), a recompensa \objeto{Azura's Star} é uma gema reutilizável: ela nunca se gasta ao encantar ou recarregar, o que economiza muito dinheiro. Mais detalhes no Capítulo~6.
+\end{exploit}
+
+\begin{alerta}[Cuidado com os ``loops infinitos'']
+Existem combinações de poções e encantamentos que quebram a economia e o equilíbrio do jogo. Este guia não depende delas. Você será forte o bastante com Conjuration, Illusion e Enchanting normais.
+\end{alerta}
+
+\section{Economia: de onde vem o ouro}
+\begin{itemize}
+  \item \textbf{Venda de saque:} armas, armaduras e livros de masmorras. Um comerciante com muito dinheiro (como o ferreiro de uma cidade grande) compra quase tudo.
+  \item \textbf{Fazenda de Goldenhills:} após \quest{The Unquiet Dead}, a quest \quest{A Farmer's Life For Me} permite desenvolver a fazenda para produzir mercadorias e ter renda constante a longo prazo. É um ganho \textbf{modesto}, não um ouro infinito.
+  \item \textbf{Recompensas de quests:} a recompensa do \emph{In the Shadows} paga ouro conforme o seu nível.
+  \item \textbf{Perk \perk{Investor} (Speech):} você pode investir ouro em lojas para aumentar o dinheiro do vendedor.
+\end{itemize}
+
+\begin{checkpoint}[Fim do Capítulo 4]
+Meta: \textbf{Conjuration perto de 100}, Illusion em 50+ e Enchanting suficiente para criar o primeiro conjunto. No próximo capítulo, avançamos para o Mid Game.
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 5 — MID GAME (NÍVEIS 11--25)
+% ============================================================================
+\chapter{Mid Game (Níveis 11--25)}
+
+\section{O Colégio de Winterhold}
+O \lugar{Colégio de Winterhold} é o ``quartel'' dos magos e o lugar onde estão os dois mestres que você precisa:
+\begin{itemize}
+  \item \npc{Phinis Gestor}: mestre de \textbf{Conjuration}. Ele vende os tomos do \emph{Necromantic Grimoire}. \textbf{O estoque depende do seu nível}: os feitiços de nível Master só aparecem completos a partir do nível 46.
+  \item \npc{Drevis Neloren}: mestre de \textbf{Illusion}. É onde você compra feitiços como \magia{Fenrik's Welcome} (Arcane Accessories), conforme o seu nível de habilidade.
+\end{itemize}
+Para entrar, vá a \lugar{Winterhold} (extremo norte), atravesse a ponte até o portão e faça o teste de entrada diante de \npc{Faralda}: basta lançar o feitiço que ela pedir.
+
+\begin{dica}
+Treinadores vendem \emph{aulas}: você paga ouro e ganha um nível inteiro de experiência na habilidade (com limite por nível de personagem). Use quando estiver perto de um marco, como Conjuration 100.
+\end{dica}
+
+\Needspace{12cm}
+\section{Feitiços do Necromantic Grimoire e Arcane Accessories}
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{3.4cm}L{2.2cm}L{3.3cm}Y@{}}
+\tabhead \cabec{Feitiço} & \cabec{Escola / Nível} & \cabec{Custo / duração} & \cabec{Efeito e onde obter} \\
+\toprule
+\magia{Conjure Undying Ghost} & Conjuration (Novice) & Consome toda a Magicka; 60 s & Fantasma com atributos iguais a 2$\times$ a Magicka gasta (até 600). Loot aleatório e Phinis Gestor. \\
+\magia{Conjure Skeleton Champion / Marksman / Minion / Warlock} & Conjuration (níveis variados) & Variável; ver no jogo & Esqueletos de combate, arqueiros e magos. Phinis Gestor e loot. \\
+\magia{Conjure Tomb Guardian} & Conjuration & Variável & Guardião de tumba. Phinis Gestor e loot. \\
+\magia{Conjure Cursed Spectre / Haunting Spirit} & Conjuration & Variável & Espectros e fantasmas de apoio. Phinis Gestor e loot. \\
+\magia{Conjure Bone Colossus} & Conjuration (Master) & 60 s; 1 por vez & Colosso de Ossos; \textbf{permite 2 esqueletos adicionais} e regenera os esqueletos. Phinis Gestor (nível 46+). \\
+\magia{Conjure Ancient Deathpriest} & Conjuration (Master) & 60 s & Sacerdote da Morte ancestral. Phinis Gestor (nível 46+). \\
+\magia{Pride of Hirstaang} & Conjuration (Expert) & 287 de Magicka; 60 s & Invoca um \textbf{urso} aliado e dá 50 de resistência a frio e 50\% mais regeneração de vida. Pacote Arcane Accessories. \\
+\magia{Fenrik's Welcome} & Illusion (Expert) & 116 de Magicka; 5 s & Invisibilidade curta e destranca fechaduras até Expert. Pacote Arcane Accessories; Drevis Neloren. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\figcap{Tabela 1. Feitiços da AE para a build. Os custos listados são os valores base de referência; aqueles marcados como ``variável'' devem ser conferidos no jogo.}
+
+\begin{nota}[Onde achar cada tomo]
+Os 13 feitiços do \emph{Necromantic Grimoire} podem ser encontrados como \textbf{loot aleatório} em contêineres e necromantes, ou comprados de \npc{Phinis Gestor}. Para ver o estoque completo (incluindo os dois de nível Master), seu personagem deve ter \textbf{nível 46 ou mais}. Já \magia{Pride of Hirstaang} e \magia{Fenrik's Welcome} pertencem ao pacote \emph{Arcane Accessories}: veja o estoque dos mestres e o saque de magos para encontrá-los. A localização de tomos específicos pode variar; se não achar, volte quando subir de nível.
+\end{nota}
+
+\section{Quest: Blood on the Ice e o Necromancer's Amulet}
+Em \lugar{Windhelm}, a quest \quest{Blood on the Ice} é um mistério de assassinatos. Sua recompensa mais importante é o \objeto{Necromancer's Amulet}: \textbf{+50 de Magicka e Conjuration 25\% mais barata}, mas \textbf{regeneração de vida e estamina 75\% mais lenta}.
+
+\begin{enumerate}
+  \item Vá ao \textbf{cemitério de Windhelm} (cena do crime) e fale com o guarda para iniciar a quest.
+  \item Fale com \npc{Jorleif} no \lugar{Palace of Kings} e com \npc{Helgird} no \lugar{Hall of the Dead}, seguindo as pistas.
+  \item Investigue \lugar{Hjerim}, a casa de \npc{Friga Shatter-Shield}: lá você encontra o \objeto{Strange Amulet} (``Amuleto Estranho'').
+  \item \textbf{Mostre o amuleto a \npc{Wuunferth the Unliving}}, no Palace of Kings: ele o identifica como o lendário \objeto{Necromancer's Amulet} e o item muda para a versão completa.
+  \item Termine a quest seguindo as pistas até o fim.
+\end{enumerate}
+
+\begin{alerta}[Blood on the Ice: evite o bug]
+A quest é longa e sensível a diálogos. Para evitar perder o amuleto: (1) \textbf{salve em slot separado} antes de falar com Wuunferth; (2) \textbf{não venda nem guarde} o Strange Amulet até a identificação; (3) se o item sumir ou não se transformar, volte ao salvamento anterior e repita o diálogo na mesma ordem. O amuleto reduz muito a regeneração de vida: use-o em lutas controladas e \textbf{troque quando precisar se curar}.
+\end{alerta}
+
+\section{Máscara de Vokun}
+No \lugar{High Gate Ruins}, a oeste de Dawnstar, o sacerdote dragão \npc{Vokun} guarda a \objeto{Máscara Vokun}: \textbf{custo 20\% menor em Alteration, Conjuration e Illusion}. É perfeita para a build, mas Vokun é um chefe forte (ele se mostra mais forte com o seu nível). Vá com Twin Souls e um exército.
+
+\section{Twin Souls}
+Quando Conjuration chegar a 100, pegue \perk{Twin Souls}: você passa a ter \textbf{duas} criaturas invocadas ao mesmo tempo. Se ainda não tem \perk{Dark Souls} (ou \perk{Elemental Potency}), compre um deles antes.
+
+\begin{checkpoint}[Checklist do Mid Game]
+\begin{itemize}
+  \item Colégio de Winterhold concluído até o ponto de acesso aos mestres.
+  \item Necromancer's Amulet em mãos (Blood on the Ice).
+  \item Máscara Vokun ou equipamento com redução de custo.
+  \item \perk{Twin Souls} comprado; Conjuration 100 em vista.
+\end{itemize}
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 6 — LATE GAME (NÍVEIS 26--45)
+% ============================================================================
+\chapter{Late Game (Níveis 26--45)}
+
+\section{The Black Star e a Azura's Star}
+Vá ao \lugar{Azura's Shrine}, a leste de Dawnstar, e fale com \npc{Aranea Ienith}. A quest \quest{The Black Star} dá a você uma gema de alma especial. No final você escolhe entre duas versões:
+\begin{itemize}
+  \item \objeto{Azura's Star}: \textbf{reutilizável}. Ideal para quem usa muito encantamento e carrega cajados.
+  \item \objeto{The Black Star}: captura almas de seres humanos (também reutilizável).
+\end{itemize}
+Para a build, a \emph{Azura's Star} é a escolha mais simples.
+
+\section{Dawnguard: Serana e a Soul Cairn}
+A expansão \emph{Dawnguard} é muito importante para a build:
+\begin{enumerate}
+  \item Inicie a linha principal (\quest{Dawnguard}) quando o jogo avisar sobre os caçadores de vampiros; você pode seguir pelo lado da \textbf{Dawnguard} ou dos \textbf{vampiros}. \emph{Para iniciantes, o lado da Dawnguard é mais simples.}
+  \item Em \lugar{Dimhollow Crypt} (quest \quest{Awakening}) você encontra \npc{Serana}. Ela se torna sua \textbf{seguidora}: uma vampira que também lança feitiços de invocação e é muito difícil de matar.
+  \item A quest \quest{Beyond Death} leva você à \lugar{Soul Cairn}, onde existem \textbf{feitiços de invocação exclusivos} (como \magia{Conjure Wrathman}, \magia{Mistman}, \magia{Boneman} e \magia{Arvak}, esta última um cavalo esquelético). Veja os tomos e vendedores dessa região durante a quest.
+\end{enumerate}
+
+\begin{alerta}[Vampirismo]
+Se Serana ou inimigos transmitirem vampirismo, seus atributos e sua regeneração mudam e a vida fica mais difícil em áreas ensolaradas. Para evitar problemas, \textbf{cure a doença} logo (poções ou rituais) se você não quiser ser vampiro.
+\end{alerta}
+
+\section{Dragonborn: Solstheim e Black Books}
+A expansão \emph{Dragonborn} leva você à ilha de \lugar{Solstheim} (de barco, a partir de Windhelm). Ali você encontra:
+\begin{itemize}
+  \item \textbf{Black Books}: livros que levam a \lugar{Apocrypha} e concedem poderes. Leia a descrição de cada um antes de escolher; alguns beneficiam diretamente magos e conjuradores (Magicka, feitiços, aliados).
+  \item Equipamento e feitiços exclusivos de Solstheim.
+\end{itemize}
+
+\section{Invocações extras: Pride of Hirstaang e Bound Bow}
+\begin{itemize}
+  \item \magia{Pride of Hirstaang} (Arcane Accessories, Expert): um \textbf{urso} aliado por 60~s e bônus de resistência a frio e de regeneração de vida para você. É uma ótima ``segunda invocação'' resistente.
+  \item \magia{Fenrik's Welcome} (Illusion, Expert): invisibilidade de 5~s que \textbf{abre qualquer fechadura até Expert}. Excelente para arrombar portas sem quebrar gazuas.
+  \item \magia{Bound Bow}: feitiço \emph{vanilla} de Conjuration que cria um arco etéreo e 100 flechas. É uma \textbf{alternativa ao Bow of Shadows}, mas \textbf{os dois não se combinam}: equipar um desfaz o outro. Relatos de jogadores apontam um tomo escondido em Fort Amol (confirme no jogo); se quiser a versão com flechas separadas, o pacote opcional \emph{Arcane Archer Pack} adiciona \magia{Bound Quiver}.
+\end{itemize}
+
+\begin{checkpoint}[Checklist do Late Game]
+\begin{itemize}
+  \item Azura's Star (ou Black Star) em mãos.
+  \item Serana como seguidora; Soul Cairn explorada.
+  \item Conjuration 100 e Twin Souls ativo.
+  \item Pelo menos um conjunto encantado de Fortify Conjuration + redução de custo.
+\end{itemize}
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 7 — END-GAME (NÍVEL 46+)
+% ============================================================================
+\chapter{End-Game (Nível 46+)}
+
+\section{Completando o Necromantic Grimoire}
+A partir do \textbf{nível 46}, \npc{Phinis Gestor} passa a poder vender todos os 13 feitiços do pacote, inclusive os dois de nível Master: \magia{Conjure Bone Colossus} e \magia{Conjure Ancient Deathpriest}. Se eles ainda não aparecerem, \textbf{suba de nível} e volte (o estoque é recalculado). Com Conjuration em 100, compre os dois.
+
+O \textbf{Ascendant Necromancer Robes} é a variante forte das vestes do pacote (a partir de nível 40), obtida como \textbf{saque de necromantes-chefe} espalhados pelo mapa. O capuz correspondente (\objeto{Ascendant Necromancer Hood}) traz um efeito próprio de invocar um \emph{Ancient Deathpriest} por 60~s.
+
+\section{Montando o exército passo a passo}
+\begin{enumerate}
+  \item \textbf{Aproxime-se invisível.} Saque o \objeto{Bow of Shadows} (30~s de invisibilidade) e avance agachado com \magia{Muffle}.
+  \item \textbf{Conjure o Colosso de Ossos} (\magia{Conjure Bone Colossus}). Enquanto ele durar (60~s), você pode invocar \textbf{2 esqueletos adicionais} (\magia{Skeleton Champion} e \magia{Skeleton Marksman} funcionam bem).
+  \item \textbf{Use o espaço de Twin Souls} para outra criatura: \magia{Ancient Deathpriest} ou \magia{Pride of Hirstaang}.
+  \item \textbf{Seguidor e animal} (Serana e seu cão, por exemplo) já estão ao seu lado.
+  \item \textbf{Renove antes de 60 s}: lance de novo cada invocação quando faltarem cerca de 10 segundos.
+  \item \textbf{Fique atrás.} Atire do escuro com o arco e deixe o exército absorver o dano.
+\end{enumerate}
+
+\begin{exploit}[Resumo da economia de Magicka]
+Vokun (--20\%) + Necromancer's Amulet (--25\%) + peças encantadas com redução de custo de Conjuration + perks (Novice a Master cortam o custo pela metade em cada nível) levam você perto do \textbf{teto de 85\%}. Passar disso não faz diferença, então use os slots restantes para \textbf{Fortify Illusion, Fortify Sneak e Fortify Magicka}.
+\end{exploit}
+
+\Needspace{10cm}
+\section{Checklist de equipamentos e encantamentos}
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{1.9cm}L{4.5cm}Y@{}}
+\tabhead \cabec{Slot} & \cabec{Item recomendado} & \cabec{Encantamento / observação} \\
+\toprule
+\textbf{Cabeça} & Máscara \objeto{Vokun} \emph{ou} \objeto{Ascendant Necromancer Hood} & Vokun: --20\% de custo em Alteration, Conjuration e Illusion. O capuz traz efeito próprio (invoca Deathpriest). \\
+\textbf{Peito} & \objeto{Ascendant Necromancer Robes} & Vestes do Necromantic Grimoire (saque de necromantes-chefe), com encantamentos exclusivos. \\
+\textbf{Mãos} & Luvas criadas por você & \textit{Fortify Conjuration} (com \perk{Extra Effect}, soma um segundo efeito). \\
+\textbf{Botas} & Botas criadas por você & \textit{Fortify Sneak} ou redução de custo; ajuda a andar furtivo. \\
+\textbf{Amuleto} & \objeto{Necromancer's Amulet} (ou amuleto próprio) & +50 de Magicka e Conjuration --25\% de custo, mas regeneração de vida e estamina --75\%: troque ao se curar. \\
+\textbf{Anel} & Anel criado por você & \textit{Fortify Magicka} ou \textit{Fortify Illusion}; use a \objeto{Azura's Star} para recarregar. \\
+\textbf{Arma} & \objeto{Bow of Shadows} & Invisibilidade ao sacar (30 s); saque 20\% mais rápido. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\figcap{Tabela 2. Checklist de equipamento e encantamentos por slot para o End-Game.}
+
+\section{Dicas de combate contra chefes}
+\begin{itemize}
+  \item \textbf{Dragões e chefes:} fique invisível, deixe o Colosso e o urso receberem os ataques, e use o arco do ponto mais distante possível.
+  \item \textbf{Ambientes fechados:} em masmorras estreitas, seus aliados bloqueiam a passagem e protegem você.
+  \item \textbf{Fantasmas e espectros:} muitos exigem armas mágicas. Suas invocações já são mágicas, então elas cuidam disso.
+  \item \textbf{Se a luta virar contra você:} troque o amuleto do necromante, beba poção de cura e recue atrás do exército.
+\end{itemize}
+
+\begin{checkpoint}[Checklist do End-Game]
+\begin{itemize}
+  \item Twin Souls, Bone Colossus e Ancient Deathpriest aprendidos.
+  \item Conjunto de equipamento completo e encantado.
+  \item Exército de 4+ invocações, seguidor e animal em campo.
+  \item Quest principal concluída (se desejar) com suas invocações como linha de frente.
+\end{itemize}
+\end{checkpoint}
+
+% ============================================================================
+%  CAPÍTULO 8 — COMBATE FURTIVO NA PRÁTICA E SOLUÇÃO DE PROBLEMAS
+% ============================================================================
+\chapter{Combate Furtivo na Prática}
+
+\section{O ciclo de combate em quatro passos}
+\begin{enumerate}
+  \item \textbf{Observe.} Agache-se (Sneak) e identifique inimigos antes de entrar.
+  \item \textbf{Invoque a distância.} Lance as invocações antes de ser visto. O perk \perk{Summoner} aumenta o alcance de invocação.
+  \item \textbf{Fique invisível.} Saque o Bow of Shadows e atire de longe.
+  \item \textbf{Reponha.} Renove invocações antes que expirem; recue se algo der errado.
+\end{enumerate}
+
+\Needspace{8cm}
+\section{Problemas comuns e soluções}
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{3.4cm}L{4.0cm}Y@{}}
+\tabhead \cabec{Problema} & \cabec{Causa provável} & \cabec{Solução} \\
+\toprule
+Invocações somem rápido & Duração padrão de 60 s & Compre \perk{Necromancy} e \perk{Atromancy}; renove com antecedência. \\
+Magicka acaba & Custo alto e pouco equipamento & Encante peças com redução de custo; use poções; confira a Mage Stone. \\
+Inimigos me veem & Ruído e brilho de magia & \magia{Muffle}, \perk{Muffled Movement} e \perk{Quiet Casting}; evite lugares iluminados. \\
+Quest do Creation Club não inicia & Na AE as quests não começam sozinhas & Fale com o NPC indicado ou leia o menu \textbf{Creations}. \\
+Não vejo o feitiço na loja & Estoque depende do nível & Suba de nível e volte; o estoque é recalculado. \\
+Seguidor atrapalha & Posicionamento & Dê ordens simples; deixe-o esperar fora da luta. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Erros comuns de iniciantes}
+\begin{itemize}
+  \item \textbf{Subir de nível rápido demais} com habilidades baixas: os inimigos ficam mais fortes que você.
+  \item \textbf{Esquecer de salvar} antes de quests longas (Blood on the Ice, Dawnguard).
+  \item \textbf{Usar o amuleto do necromante o tempo todo}: ele reduz muito a regeneração de vida.
+  \item \textbf{Acumular peso demais}: guarde o excesso em casa.
+\end{itemize}
+
+% ============================================================================
+%  APÊNDICE A — NOTAS DE VERIFICAÇÃO
+% ============================================================================
+\appendix
+\chapter{Notas de Verificação}
+Algumas ``verdades'' populares sobre a AE estão imprecisas. Esta tabela mostra o que foi confirmado em fontes públicas e o que ficou de fora por falta de confirmação.
+
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{4.3cm}Y@{}}
+\tabhead \cabec{Alegação comum} & \cabec{O que foi conferido} \\
+\toprule
+Bone Colossus ``quebra'' o limite padrão de invocações & Confirmado só em parte: enquanto ativo, permite \textbf{2 esqueletos adicionais} e só pode existir 1 colosso por vez. \\
+Twin Souls exige apenas Conjuration 100 & Também exige \perk{Dark Souls} \emph{ou} \perk{Elemental Potency}. \\
+Pride of Hirstaang é ``espírito da terra'' do Necromantic Grimoire & É um feitiço Expert do pacote \emph{Arcane Accessories}: invoca um \textbf{urso}. \\
+Goldenhills gera ouro ``infinito'' & Gera renda \textbf{modesta}; a fazenda se desenvolve com quests. \\
+Bloodchill Manor serve para o início & A carta chega por volta do \textbf{nível 12}; os anfitriões são vampiros. \\
+Myrwatch fica ``perto de Morthal'' & Fica em \textbf{Hjaalmarch} (região de Morthal); a entrada exige um feitiço de fogo no selo. \\
+Bound Bow é do Creation Club & É um feitiço \emph{vanilla}; o CC só adiciona o \magia{Bound Quiver}. \\
+Necromancer's Amulet é ``de graça'' & Vem de \emph{Blood on the Ice} e reduz a regeneração de vida e estamina em 75\%. \\
+Máscara Vokun & Confirmado: --20\% de custo nas escolas Alteration, Conjuration e Illusion. \\
+\textbf{Omitidos por falta de confirmação} & ``Baú invisível de Dawnstar''; anel ``Warlock's Ring/Ring of Phynaster'' via pesca; ``Ritual de Yngvild/Kagrenzel'' e o local exato do tomo de Bound Bow em Fort Amol; os poderes específicos de cada Black Book; os feitiços exatos de invocação vendidos na Soul Cairn. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ============================================================================
+%  APÊNDICE B — GLOSSÁRIO PT/EN
+% ============================================================================
+\chapter{Glossário PT/EN}
+\begin{center}
+\small
+\rowcolors{2}{GoldLight!45}{white}
+\begin{tabularx}{\linewidth}{@{}L{4cm}L{4cm}Y@{}}
+\tabhead \cabec{Português} & \cabec{Inglês (nome no jogo)} & \cabec{Observação} \\
+\toprule
+Conjuração & Conjuration & Escola de invocação e reanimação. \\
+Ilusão & Illusion & Escola de feitiços mentais e de furtividade. \\
+Furtividade & Sneak & Habilidade de ficar escondido. \\
+Atronaque & Atronach & Criatura elemental (fogo, gelo, raio). \\
+Seguidor & Follower & NPC que acompanha você. \\
+Gema de alma & Soul Gem & Armazena almas para encantar. \\
+Encantador arcano & Arcane Enchanter & Bancada para criar itens encantados. \\
+Criatura invocada & Summoned creature & Aliado temporário (60 s). \\
+Pergaminho & Scroll & Feitiço de uso único. \\
+Lançar em dois (dual) & Dual casting & Lançar o mesmo feitiço com as duas mãos. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ============================================================================
+%  APÊNDICE C — CHECKLIST FINAL
+% ============================================================================
+\chapter{Checklist Final}
+Use esta lista como resumo de toda a jornada:
+\begin{enumerate}
+  \item Mage Stone ativa; casa gratuita liberada.
+  \item Bow of Shadows obtido (\emph{In the Shadows}).
+  \item Muffle aprendido; Illusion e Conjuration em evolução.
+  \item Colégio de Winterhold: Phinis Gestor e Drevis Neloren.
+  \item Necromancer's Amulet (\emph{Blood on the Ice}).
+  \item Máscara Vokun; Twin Souls comprado.
+  \item Azura's Star (\emph{The Black Star}).
+  \item Dawnguard: Serana e Soul Cairn.
+  \item Dragonborn: Black Books.
+  \item Nível 46+: Bone Colossus e Ancient Deathpriest comprados.
+  \item Ascendant Necromancer Robes obtido.
+  \item Conjunto encantado e exército completo em campo.
+\end{enumerate}
+
+\vfill
+\begin{center}
+\ornament\vspace{4pt}
+{\sffamily\small\itshape\color{NecroEmerald} Que as sombras o protejam, Dragonborn.}
+\end{center}
+
+\end{document}

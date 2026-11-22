@@ -1,0 +1,76 @@
+[
+  {
+    "id": "army_early",
+    "fase": "early",
+    "faixa_de_nivel": "Early (1–10)",
+    "composicao_esperada": "1 invocação + 1 seguidor",
+    "invocacoes_simultaneas": 1,
+    "total_aliados": 2,
+    "reducao_magicka_planejada_pct": 25,
+    "regras_limite": [
+      "Regra padrão: sem Twin Souls, você mantém 1 criatura invocada ou 1 morto reanimado por vez.",
+      "Um seguidor humano não consome o limite de invocações."
+    ],
+    "source_page": 8,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Cap. 2.5 (PDF p. 8) e Dossiê Seção 5.",
+    "needs_verification": false
+  },
+  {
+    "id": "army_mid",
+    "fase": "mid",
+    "faixa_de_nivel": "Mid (11–25)",
+    "composicao_esperada": "Twin Souls: 2 invocações + seguidor",
+    "invocacoes_simultaneas": 2,
+    "total_aliados": 3,
+    "reducao_magicka_planejada_pct": 50,
+    "regras_limite": [
+      "Twin Souls (Conjuration 100): permite 2 atronaques, reanimados ou Dremora Lords simultâneos.",
+      "Exige Dark Souls OU Elemental Potency."
+    ],
+    "source_page": 8,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #8 e Seção 3.1 (UESP).",
+    "needs_verification": false
+  },
+  {
+    "id": "army_late",
+    "fase": "late",
+    "faixa_de_nivel": "Late (26–45)",
+    "composicao_esperada": "2 invocações + seguidor (Serana) + animal",
+    "invocacoes_simultaneas": 2,
+    "total_aliados": 4,
+    "reducao_magicka_planejada_pct": 100,
+    "regras_limite": [
+      "Seguidor permanente (Serana) e animal de companhia não contam no limite de invocação.",
+      "Com Enchanting 100 + Enchanter 5/5 + Insightful Enchanter, 4 peças de 25% zeram o custo de Conjuration (100% — sem teto de 85%)."
+    ],
+    "source_page": 8,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1 (UESP Magic Overview): 4 peças de 25% alcançam custo zero.",
+    "needs_verification": false
+  },
+  {
+    "id": "army_end",
+    "fase": "end",
+    "faixa_de_nivel": "End (46+)",
+    "composicao_esperada": "Colosso + 2 esqueletos + (testar Twin Souls/Robes em casa) + Serana + animal",
+    "invocacoes_simultaneas": 4,
+    "total_aliados": 6,
+    "reducao_magicka_planejada_pct": 100,
+    "regras_limite": [
+      "Bone Colossus (nv 40, ~1005 HP, 60 s): enquanto vivo permite invocar 2 esqueletos extras (Minion/Marksman/Champion/Warlock e Boneman/Mistman/Wrathman). Só 1 Colosso por vez.",
+      "AVISO CRÍTICO (UESP): com Twin Souls, a próxima invocação após o Colosso ocupa o slot de Twin Souls e pode despawnar o Colosso ou esqueletos.",
+      "Ascendant Necromancer Robes concede +1 no limite de invocações menores, mas discussão da UESP aponta que pode não somar com Twin Souls.",
+      "O PDF original contava 6 aliados sem testar. Revalide a ordem exata das invocações dentro de casa antes de lutar!"
+    ],
+    "source_page": 8,
+    "confidence": "low",
+    "confidence_tier": "C",
+    "game_version_note": "Dossiê Seção 1 #7 e #8 e Seção 5 (Nível 46+): interação exata de Colosso + Twin Souls + Ascendant Robes marcada para verificar no jogo.",
+    "needs_verification": true
+  }
+]

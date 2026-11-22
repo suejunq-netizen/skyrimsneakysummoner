@@ -1,0 +1,93 @@
+[
+  {
+    "id": "eq_cabeca",
+    "slot": "cabeca",
+    "slot_label": "Cabeça",
+    "item_recomendado": "Máscara Vokun ou elmo encantado (+25% Fortify Conjuration)",
+    "item_ids": ["item_vokun_mask", "item_ascendant_necromancer_hood"],
+    "encantamento_observacao": "Vokun: -20% Alteration/Conjuration/Illusion. Ascendant Hood (nv 40): +100 Magicka à noite (19h–5h) e -30% regen de vida (corrigido: não invoca Deathpriest). Para custo zero (100%), use peça própria com 25%.",
+    "source_page": 23,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1, #6 e Seção 6 (UESP).",
+    "needs_verification": false
+  },
+  {
+    "id": "eq_peito",
+    "slot": "peito",
+    "slot_label": "Peito",
+    "item_recomendado": "Ascendant Necromancer Robes ou peito próprio (25% Fortify Conjuration)",
+    "item_ids": ["item_ascendant_necromancer_robes"],
+    "encantamento_observacao": "Ascendant Robes (nv 40): +25% duração em Conjuration e +1 no limite de invocações menores (verificar em casa se soma com Twin Souls). Alternativa: peito encantado com 25%.",
+    "source_page": 23,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 1 #6, #7 e Seção 6 (UESP).",
+    "needs_verification": true
+  },
+  {
+    "id": "eq_maos",
+    "slot": "maos",
+    "slot_label": "Mãos",
+    "item_recomendado": "Luvas criadas por você",
+    "item_ids": ["item_crafted_gloves"],
+    "encantamento_observacao": "Fortify Magicka, Fortify Sneak ou suporte (Fortify Conjuration não vai em mãos no jogo base — use cabeça, peito, anel e amuleto para os 4x 25%).",
+    "source_page": 23,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1 e Seção 6 (UESP): 4 peças de 25% = elmo, peito, anel e amuleto.",
+    "needs_verification": false
+  },
+  {
+    "id": "eq_botas",
+    "slot": "botas",
+    "slot_label": "Botas",
+    "item_recomendado": "Botas criadas por você",
+    "item_ids": ["item_crafted_boots"],
+    "encantamento_observacao": "Fortify Sneak / Muffle (com Extra Effect, combine dois efeitos furtivos ou de resistência).",
+    "source_page": 23,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 6 e Cap. 7.3 Tabela 2.",
+    "needs_verification": false
+  },
+  {
+    "id": "eq_amuleto",
+    "slot": "amuleto",
+    "slot_label": "Amuleto",
+    "item_recomendado": "Necromancer's Amulet ou amuleto próprio (25% Fortify Conjuration)",
+    "item_ids": ["item_necromancers_amulet"],
+    "encantamento_observacao": "Necromancer's Amulet: +50 Magicka e Conjuration -25%, com -75% regen de vida/stamina (troque para curar). Ou encante um amuleto próprio com 25% + segundo efeito via Extra Effect.",
+    "source_page": 23,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 5 e 6 (UESP).",
+    "needs_verification": false
+  },
+  {
+    "id": "eq_anel",
+    "slot": "anel",
+    "slot_label": "Anel",
+    "item_recomendado": "Anel criado por você (25% Fortify Conjuration + Illusion/Magicka)",
+    "item_ids": ["item_crafted_ring"],
+    "encantamento_observacao": "Com Extra Effect, combine 25% Fortify Conjuration + 25% Fortify Illusion (ou Fortify Magicka); use Azura's Star / Black Star para recarregar.",
+    "source_page": 23,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1 e Seção 6 (UESP).",
+    "needs_verification": false
+  },
+  {
+    "id": "eq_arma",
+    "slot": "arma",
+    "slot_label": "Arma",
+    "item_recomendado": "Bow of Shadows",
+    "item_ids": ["item_bow_of_shadows"],
+    "encantamento_observacao": "Botão de sumir: Invisibilidade ao sacar (30 s, saque +20% rápido — fontes secundárias [B]).",
+    "source_page": 23,
+    "confidence": "medium",
+    "confidence_tier": "B",
+    "game_version_note": "Dossiê Seção 7 #8: valores de 30 s e +20% constam em fontes secundárias [B].",
+    "needs_verification": true
+  }
+]

@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+
+:root {
+  /* Light Theme — Aged Parchment & Nordic Emerald */
+  --bg-canvas: #f8f4ec;
+  --bg-surface: #ffffff;
+  --bg-surface-muted: #efe9dc;
+  --text-primary: #1a1d24;
+  --text-secondary: #494e58;
+  --text-muted: #6c727e;
+  --border-subtle: rgba(145, 112, 34, 0.24);
+  --accent-gold: #9a6e08;
+  --accent-emerald: #1e4d3b;
+  --accent-ice: #23666f;
+  --accent-purple: #4a2a6b;
+  --accent-crimson: #8c2323;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'EB Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --base-font-scale: 1;
+}
+
+.dark {
+  /* Dark Theme — Obsidian & Aged Gold / Ice Blue */
+  --bg-canvas: #11141a;
+  --bg-surface: #181c24;
+  --bg-surface-muted: #1f242f;
+  --text-primary: #ece7dc;
+  --text-secondary: #c4beaf;
+  --text-muted: #8f96a3;
+  --border-subtle: rgba(212, 175, 55, 0.2);
+  --accent-gold: #d4af37;
+  --accent-emerald: #3a8b6c;
+  --accent-ice: #6cb8c7;
+  --accent-purple: #a57bd4;
+  --accent-crimson: #e06c6c;
+}
+
+html {
+  font-size: calc(16px * var(--base-font-scale));
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Leaflet map container theme overrides */
+.leaflet-container {
+  background-color: #0b1016;
+  font-family: var(--font-body);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba(184, 134, 11, 0.35);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: #181c24;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

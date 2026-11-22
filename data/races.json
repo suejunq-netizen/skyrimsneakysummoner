@@ -1,0 +1,35 @@
+[
+  {
+    "id": "breton",
+    "nome": "Breton",
+    "bonus": "25% de resistência passiva a magia, começa com Conjuration 25 (+ Healing, Flames e Conjure Familiar) e poder Dragonskin (absorve 50% da Magicka de feitiços hostis por 60 s, 1x/dia).",
+    "justificativa": "Mais seguro contra magos inimigos e acelera o início em Conjuration; ótimo para iniciantes.",
+    "source_page": 7,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #2 e Seção 5 (UESP): corrigido — Dragonskin absorve 50% da Magicka de feitiços por 60 s.",
+    "needs_verification": false
+  },
+  {
+    "id": "altmer",
+    "nome": "Altmer (High Elf)",
+    "bonus": "Illusion 25 inicial, +50 de Magicka passivo e poder Highborn (regeneração rápida de Magicka).",
+    "justificativa": "Mais Magicka já no nível 1: permite invocar cedo e facilita alcançar Quiet Casting.",
+    "source_page": 7,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 5 (UESP) + Cap. 2.3 (PDF p. 7).",
+    "needs_verification": false
+  },
+  {
+    "id": "dunmer",
+    "nome": "Dunmer (Dark Elf)",
+    "bonus": "Destruction 25 inicial, Ancestor's Wrath (aura de fogo) e 50% de resistência a fogo.",
+    "justificativa": "Boa defesa contra fogo/dragões e excelente opção caso pretenda virar vampiro em Dawnguard.",
+    "source_page": 7,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 5 (UESP) + Cap. 2.3 (PDF p. 7).",
+    "needs_verification": false
+  }
+]

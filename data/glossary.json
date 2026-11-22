@@ -1,0 +1,178 @@
+[
+  {
+    "id": "gloss_magicka",
+    "termo_pt": "Magicka",
+    "termo_en": "Magicka",
+    "significado": "Sua 'energia mágica': cada feitiço gasta Magicka, que regenera sozinha com o tempo.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 Mini-glossário de sobrevivência (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_perk",
+    "termo_pt": "Perk",
+    "termo_en": "Perk",
+    "significado": "Habilidade especial que você compra com pontos ao subir de nível (ex.: Twin Souls).",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_agro",
+    "termo_pt": "Agro",
+    "termo_en": "Aggro",
+    "significado": "Quando um inimigo 'decide' atacar você. Na build, o objetivo é que ele ataque suas invocações.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_sneak",
+    "termo_pt": "Furtividade",
+    "termo_en": "Sneak",
+    "significado": "Modo furtivo (agachado) e habilidade de ficar escondido. Enquanto escondido, inimigos não o veem.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 e Apêndice B (p. 2 e 23 do guia impresso; p. 5 e 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_invocacao",
+    "termo_pt": "Criatura invocada / Invocação",
+    "termo_en": "Summoned creature",
+    "significado": "Criatura chamada por feitiço de Conjuration; aliado temporário (geralmente 60 s).",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 e Apêndice B (p. 2 e 23 do guia impresso; p. 5 e 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_reanimar",
+    "termo_pt": "Reanimar",
+    "termo_en": "Reanimate",
+    "significado": "Feitiço que levanta um cadáver para lutar por você.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_seguidor",
+    "termo_pt": "Seguidor",
+    "termo_en": "Follower",
+    "significado": "NPC permanente que acompanha você (ex.: Serana).",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 e Apêndice B (p. 2 e 23 do guia impresso; p. 5 e 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_loot",
+    "termo_pt": "Loot / Saque",
+    "termo_en": "Loot",
+    "significado": "Itens que você recolhe de corpos, baús e masmorras.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_level_scaling",
+    "termo_pt": "Level scaling",
+    "termo_en": "Level scaling",
+    "significado": "Inimigos e itens ficam mais fortes conforme o seu nível.",
+    "origem": "Cap. 1",
+    "source_page": 5,
+    "confidence": "high",
+    "game_version_note": "Cap. 1.4 (p. 2 do guia impresso; p. 5 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_conjuration",
+    "termo_pt": "Conjuração",
+    "termo_en": "Conjuration",
+    "significado": "Escola de invocação e reanimação.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_illusion",
+    "termo_pt": "Ilusão",
+    "termo_en": "Illusion",
+    "significado": "Escola de feitiços mentais e de furtividade.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_atronach",
+    "termo_pt": "Atronaque",
+    "termo_en": "Atronach",
+    "significado": "Criatura elemental (fogo, gelo, raio).",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_soul_gem",
+    "termo_pt": "Gema de alma",
+    "termo_en": "Soul Gem",
+    "significado": "Armazena almas para encantar.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_arcane_enchanter",
+    "termo_pt": "Encantador arcano",
+    "termo_en": "Arcane Enchanter",
+    "significado": "Bancada para criar itens encantados.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_scroll",
+    "termo_pt": "Pergaminho",
+    "termo_en": "Scroll",
+    "significado": "Feitiço de uso único.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  },
+  {
+    "id": "gloss_dual_casting",
+    "termo_pt": "Lançar em dois (dual)",
+    "termo_en": "Dual casting",
+    "significado": "Lançar o mesmo feitiço com as duas mãos.",
+    "origem": "Apêndice B",
+    "source_page": 26,
+    "confidence": "high",
+    "game_version_note": "Apêndice B (p. 23 do guia impresso; p. 26 do PDF).",
+    "needs_verification": false
+  }
+]

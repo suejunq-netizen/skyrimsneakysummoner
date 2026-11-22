@@ -1,0 +1,156 @@
+[
+  {
+    "id": "myth_magicka_cap_85",
+    "alegacao_comum": "Redução de custo de Magicka tem teto de 85%",
+    "o_que_foi_conferido": "CORRIGIDO (Dossiê #1 — UESP Magic Overview): 4 peças com 25% de redução na mesma escola chegam a CUSTO ZERO (100%). O teto de 85% aplica-se a resistências, não a custo de feitiços.",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1 (UESP Magic Overview): prioridade sobre o PDF original.",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_ascendant_hood",
+    "alegacao_comum": "Ascendant Necromancer Hood invoca Ancient Deathpriest",
+    "o_que_foi_conferido": "CORRIGIDO (Dossiê #6 — UESP): não há fonte disso. O Hood dá +100 Magicka apenas à noite (19h–5h) e -30% regen de vida. Quem dá +25% duração e +1 invocação menor são os Ascendant Necromancer Robes (itens separados).",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #6 e #9 (UESP): aparecem no nível 40 (Elite no 32).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_azura_location",
+    "alegacao_comum": "Azura's Shrine fica 'a leste de Dawnstar' e dá qualquer estrela",
+    "o_que_foi_conferido": "CORRIGIDO (Dossiê #4 e #5 — UESP): Shrine of Azura fica perto de Winterhold (sul/leste). Azura's Star (almas não-humanas + Aranea seguidora) e The Black Star (almas humanas) são MUTUAMENTE EXCLUSIVAS (nível sugerido 8).",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #4 e #5 (UESP): corrigido local e exclusividade.",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_breton_dragonskin",
+    "alegacao_comum": "Dragonskin do Breton apenas 'reduz dano mágico'",
+    "o_que_foi_conferido": "CORRIGIDO (Dossiê #2 — UESP Races): a resistência passiva a magia do Breton é 25%; Dragonskin é um poder 1x/dia que absorve 50% da Magicka de feitiços hostis por 60 s.",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #2 (UESP Races).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_muffle_tier",
+    "alegacao_comum": "Muffle é feitiço Novice de Illusion",
+    "o_que_foi_conferido": "CORRIGIDO (Dossiê #3 — UESP Illusion): Muffle é Apprentice (Illusion 25), custo base 88, duração 180 s. Bretons começam com Illusion 20 e Altmer 25. Venda inicial em Farengar não confirmada [C].",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 1 #3 e Seção 7 #3 (UESP): stats [A]; Farengar [C].",
+    "needs_verification": true
+  },
+  {
+    "id": "myth_bone_colossus",
+    "alegacao_comum": "Twin Souls + Bone Colossus + Ascendant Robes somam automaticamente 6 aliados",
+    "o_que_foi_conferido": "PARCIAL / VERIFICAR (Dossiê #7 e #8 — UESP): Bone Colossus libera 2 esqueletos extras (só 1 Colosso por vez), MAS a UESP avisa que com Twin Souls a invocação seguinte ocupa o slot de Twin Souls e pode despawnar o Colosso ou esqueletos. O +1 do Ascendant Robes pode não somar [C].",
+    "categoria": "confirmado_parcial",
+    "source_page": 25,
+    "confidence": "low",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 1 #7, #8 e Seção 7 #2: testar no jogo dentro de casa [C].",
+    "needs_verification": true
+  },
+  {
+    "id": "myth_twin_souls",
+    "alegacao_comum": "Twin Souls exige apenas Conjuration 100",
+    "o_que_foi_conferido": "Também exige Dark Souls (70, via Necromancy) OU Elemental Potency (80, via Atromancy -> Summoner).",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Apêndice A e Dossiê Seção 3.1 (UESP Conjuration).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_goldenhills",
+    "alegacao_comum": "Goldenhills gera ouro infinito e fica sempre segura",
+    "o_que_foi_conferido": "Gera renda modesta constante com quests — E após iniciar a quest principal de Dawnguard, vampiros passam a atacar Goldenhills Plantation (Dossiê #12, UESP).",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #12 (UESP) + Apêndice A.",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_soul_cairn_tomes",
+    "alegacao_comum": "Os feitiços exclusivos da Soul Cairn não têm origem confirmada",
+    "o_que_foi_conferido": "Confirmado em fonte secundária (GameBanshee [B] — Dossiê #11): Conjure Wrathman, Mistman e Boneman estão em tomos sobre pedestais/altares na Soul Cairn; devolver o crânio ao fantasma ensina Summon Arvak.",
+    "categoria": "confirmado_parcial",
+    "source_page": 25,
+    "confidence": "medium",
+    "confidence_tier": "B",
+    "game_version_note": "Dossiê Seção 1 #11 (GameBanshee [B]).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_pride_of_hirstaang",
+    "alegacao_comum": "Pride of Hirstaang e Fenrik's Welcome só vêm por sorte de vendedor",
+    "o_que_foi_conferido": "São de Arcane Accessories: a UESP documenta um baú em Hob's Fall Cave com todos os tomos novos + a quest The Lost Library (alternativa garantida a Drevis).",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 4.1 (UESP Arcane Accessories).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_bound_bow",
+    "alegacao_comum": "Bound Bow é do Creation Club",
+    "o_que_foi_conferido": "É um feitiço vanilla; o CC opcional só adiciona o Bound Quiver. O suposto local escondido em Fort Amol é relato de jogadores não confirmado na UESP [C].",
+    "categoria": "corrigido",
+    "source_page": 25,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Apêndice A + Dossiê Seção 7 #7.",
+    "needs_verification": true
+  },
+  {
+    "id": "myth_necromancers_amulet",
+    "alegacao_comum": "Necromancer's Amulet é 'de graça' e sem ambiguidades",
+    "o_que_foi_conferido": "Vem de Blood on the Ice (+50 Magicka, -25% Conjuration) e reduz regen de vida e estamina em 75%. A UESP é ambígua sobre o passo exato Calixto vs Wuunferth [C] — salve antes!",
+    "categoria": "confirmado_parcial",
+    "source_page": 25,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 5 e Seção 7 #1.",
+    "needs_verification": true
+  },
+  {
+    "id": "myth_vokun",
+    "alegacao_comum": "Máscara Vokun",
+    "o_que_foi_conferido": "Confirmado: -20% de custo em Alteration, Conjuration e Illusion. Fica em High Gate Ruins (A Scroll for Anska, zona nível mín. 24, Dragon Priest nível base 50).",
+    "categoria": "confirmado",
+    "source_page": 25,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Apêndice A + Dossiê Seção 2.4 e Seção 5 (UESP).",
+    "needs_verification": false
+  },
+  {
+    "id": "myth_omitted_unconfirmed",
+    "alegacao_comum": "Itens não confirmados do Dossiê (Seção 7) & Omitidos",
+    "o_que_foi_conferido": "(1) Passo exato Calixto vs Wuunferth em Blood on the Ice [C]; (2) Resultado final de Twin Souls + Colosso + Ascendant Robes [C]; (3) Onde Muffle vende no início [C]; (4) Mage Stone +20% e valores exatos das casas por nível [C]; (5) Efeito exato do scaling sobre o loot de dungeons [C]; (6) Poderes dos demais Black Books além de Waking Dreams / Filament / Epistolary [C]; (7) Tomo de Bound Bow em Fort Amol [C]; (8) Bow of Shadows 30 s / +20% [B]; (9) Bloodchill Manor não reverificada na UESP [C].",
+    "categoria": "omitido",
+    "source_page": 25,
+    "confidence": "low",
+    "confidence_tier": "C",
+    "game_version_note": "Dossiê Seção 7 (todos os 9 itens marcados para verificar no jogo) + Apêndice A.",
+    "needs_verification": true
+  }
+]

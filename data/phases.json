@@ -1,0 +1,140 @@
+[
+  {
+    "id": "early",
+    "ordem": 1,
+    "nome": "Early Game",
+    "faixa_de_nivel": "Níveis 1–10",
+    "nivel_min": 1,
+    "nivel_max": 10,
+    "narrativa_abertura": "Prisioneiro em Helgen, você escapa com Conjure Familiar, Flames e Healing (Breton), desperta a Mage Stone e conquista o Bow of Shadows nas sombras de Whiterun.",
+    "objetivos": [
+      "Fuga de Helgen, Guardian Stones (Mage Stone) e chegada a Whiterun",
+      "Quest In the Shadows -> Bow of Shadows (fale com Proventus Avenicci)",
+      "Aprender Muffle (Apprentice, Illusion 25) e iniciar evolução de Conjuration e Illusion",
+      "Moradia gratuita: Myrwatch (ou Goldenhills Plantation antes de Dawnguard)"
+    ],
+    "checklist": [
+      { "id": "chk_early_1", "texto": "Mage Stone ativa." },
+      { "id": "chk_early_2", "texto": "Bow of Shadows em mãos e quest In the Shadows concluída." },
+      { "id": "chk_early_3", "texto": "Muffle aprendido (ou saque/loja planejada — Farengar não confirmado [C])." },
+      { "id": "chk_early_4", "texto": "Casa gratuita liberada (Myrwatch recomendada)." },
+      { "id": "chk_early_5", "texto": "Marcos do fim do Early (~Nv. 9 Breton): Conj ~40, Ill ~30, Sneak 30, Arch 30, Ench 20." }
+    ],
+    "ponto_de_verificacao": "Mage Stone ativa, Bow of Shadows em mãos, Muffle aprendido, Myrwatch liberada e habilidades da build em ~Nv. 9 (Novice/Apprentice Conjuration, Necromancy, Novice/Apprentice Illusion, Enchanter 1/5, Stealth 1/5, Overdraw 1/5).",
+    "meta_habilidades": {
+      "Conjuration": "Meta fim do Early: ~40 (Soul Trap / Conjure Familiar)",
+      "Illusion": "Meta fim do Early: ~30 (Muffle já utilizável no Illusion 25)",
+      "Sneak": "Meta fim do Early: 30 (Stealth + preparação para Muffled Movement)",
+      "Archery": "Meta fim do Early: 30 (Overdraw + Bow of Shadows)",
+      "Enchanting": "Meta fim do Early: 20 (desencantamentos iniciais em Myrwatch)"
+    },
+    "source_page": 11,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 2.3 e Seção 5 (UESP): baseline Breton ~Nv. 9 ao fim do Early.",
+    "needs_verification": false
+  },
+  {
+    "id": "mid",
+    "ordem": 2,
+    "nome": "Mid Game",
+    "faixa_de_nivel": "Níveis 11–25",
+    "nivel_min": 11,
+    "nivel_max": 25,
+    "narrativa_abertura": "Após passar no teste de Faralda e concluir First Lessons, você acessa Phinis Gestor e Drevis Neloren, desvenda Blood on the Ice pelo Necromancer's Amulet e enfrenta Vokun em High Gate Ruins (zona mín. 24).",
+    "objetivos": [
+      "Colégio de Winterhold: First Lessons + Phinis Gestor (Conjuration) e Drevis Neloren (Illusion)",
+      "Quest Blood on the Ice (Windhelm) -> Necromancer's Amulet (salve antes — passo ambíguo [C])",
+      "Quiet Casting (Illusion 50) + Fenrik's Welcome (Drevis ou baú de Hob's Fall Cave)",
+      "Máscara Vokun em High Gate Ruins (A Scroll for Anska — zona mín. 24, chefe nv 50)"
+    ],
+    "checklist": [
+      { "id": "chk_mid_1", "texto": "First Lessons concluída e acesso aos mestres do Colégio de Winterhold." },
+      { "id": "chk_mid_2", "texto": "Necromancer's Amulet identificado em Windhelm." },
+      { "id": "chk_mid_3", "texto": "Quiet Casting (Illusion 50) + Fenrik's Welcome adquiridos." },
+      { "id": "chk_mid_4", "texto": "Máscara Vokun obtida (zona mín. 24) e Conjuration rumo a 80–100." }
+    ],
+    "ponto_de_verificacao": "Meio do Mid (~Nv. 14): Conj 60, Ill 40, Ench 35. Fim do Mid (~Nv. 20): Conj 80, Ill 50 (Quiet Casting), Sneak 40, Arch 40, Ench 50 (Insightful Enchanter).",
+    "meta_habilidades": {
+      "Conjuration": "60 (meio) -> 80+ (fim do Mid, rumo a Twin Souls)",
+      "Illusion": "40 -> 50 (Quiet Casting)",
+      "Sneak": "35 -> 40 (Muffled Movement + Deadly Aim)",
+      "Archery": "35 -> 40",
+      "Enchanting": "35 -> 50 (Insightful Enchanter)"
+    },
+    "source_page": 11,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 2.3 e Seção 5 (UESP): marcos ~Nv. 14 e ~Nv. 20.",
+    "needs_verification": false
+  },
+  {
+    "id": "late",
+    "ordem": 3,
+    "nome": "Late Game",
+    "faixa_de_nivel": "Níveis 26–45",
+    "nivel_min": 26,
+    "nivel_max": 45,
+    "narrativa_abertura": "De Shrine of Azura (perto de Winterhold) à aliança com Serana e a Soul Cairn, você fecha Twin Souls e Enchanting 100 por volta do nível 31 — e então sobe intencionalmente com habilidades secundárias até os portões 32, 40 e 46.",
+    "objetivos": [
+      "Twin Souls (Conjuration 100) e Extra Effect (Enchanting 100) concluídos (~Nv. 30–31)",
+      "Conjunto encantado de 4 peças × 25% = custo zero (100% em cabeça, peito, anel, amuleto)",
+      "The Black Star (perto de Winterhold — escolha exclusiva Azura's Star vs Black Star)",
+      "Dawnguard (Serana, Soul Cairn mín. 13) + Dragonborn (Waking Dreams, Filament and Filigree)",
+      "Subir de propósito com skills secundárias após Nv. 31 para liberar Elite (32), Ascendant (40) e Master (46)"
+    ],
+    "checklist": [
+      { "id": "chk_late_1", "texto": "Azura's Star (ou Black Star) obtida." },
+      { "id": "chk_late_2", "texto": "Serana como seguidora; Soul Cairn (Wrathman/Mistman/Boneman/Arvak) explorada." },
+      { "id": "chk_late_3", "texto": "Conjuration 100 (Twin Souls) e Enchanting 100 (Extra Effect) fechados (~Nv. 31)." },
+      { "id": "chk_late_4", "texto": "4 peças de 25% Fortify Conjuration (custo zero) e progresso rumo ao nível 40/46." }
+    ],
+    "ponto_de_verificacao": "Início do Late (~Nv. 27) com Conj 100 -> Build completa (~Nv. 31) com Ench 100. Depois do 31, evolua habilidades secundárias (Restoration, Smithing, Alchemy) para destravar Elite (32), Ascendant (40) e Phinis Master (46).",
+    "meta_habilidades": {
+      "Conjuration": "100 (Twin Souls ativo)",
+      "Illusion": "65 -> 75 (Expert Illusion + Fenrik's Welcome)",
+      "Sneak": "50",
+      "Archery": "45 -> 50",
+      "Enchanting": "70 -> 100 (Enchanter 5/5 + Insightful + Corpus + Extra Effect)"
+    },
+    "source_page": 11,
+    "confidence": "high",
+    "confidence_tier": "A",
+    "game_version_note": "Dossiê Seção 1 #1, Seção 2.3 e Seção 5 (UESP): build fecha no ~Nv. 31; 4 peças de 25% zeram o custo.",
+    "needs_verification": false
+  },
+  {
+    "id": "end",
+    "ordem": 4,
+    "nome": "End-Game",
+    "faixa_de_nivel": "Nível 46+",
+    "nivel_min": 46,
+    "nivel_max": null,
+    "narrativa_abertura": "No nível 46+, Phinis Gestor libera o estoque Master do Necromantic Grimoire (Bone Colossus e Ancient Deathpriest). Com Ascendant Robes (nv 40+), teste em segurança dentro de casa o limite real das suas invocações.",
+    "objetivos": [
+      "Phinis Gestor no nível 46+: Conjure Bone Colossus e Ancient Deathpriest",
+      "Ascendant Necromancer Robes e Hood (disponíveis a partir do nível 40)",
+      "Validar em casa o comportamento exato de Twin Souls + Bone Colossus + Ascendant Robes [C]",
+      "Conjunto final de 7 slots com 4 peças × 25% (custo zero em Conjuration)"
+    ],
+    "checklist": [
+      { "id": "chk_end_1", "texto": "Twin Souls, Bone Colossus e Ancient Deathpriest aprendidos." },
+      { "id": "chk_end_2", "texto": "Conjunto de equipamento completo (custo zero em Conjuration com 4× 25%)." },
+      { "id": "chk_end_3", "texto": "Ordem real de invocações testada e confirmada dentro de casa [C]." },
+      { "id": "chk_end_4", "texto": "Quest principal concluída (se desejar) com suas invocações como linha de frente." }
+    ],
+    "ponto_de_verificacao": "Feitiços Master de Phinis Gestor comprados no nível 46+, Ascendant Robes/Hood obtidos (nv 40+), redução de 100% (custo zero) com 4× 25% e exército revalidado no jogo dentro de casa.",
+    "meta_habilidades": {
+      "Conjuration": "100 (Master Conjuration + Twin Souls)",
+      "Illusion": "75+ (Quiet Casting + Expert Illusion + Fenrik's Welcome + Muffle)",
+      "Sneak": "50+ (Stealth + Muffled Movement + Deadly Aim)",
+      "Archery": "50+ (Suporte furtivo com Bow of Shadows)",
+      "Enchanting": "100 (Extra Effect + 4 peças × 25%)"
+    },
+    "source_page": 11,
+    "confidence": "medium",
+    "confidence_tier": "A/C",
+    "game_version_note": "Dossiê Seção 1 #1, #6–#10 e Seção 5: contagem exata de aliados pós-Twin Souls + Colosso marcada [C].",
+    "needs_verification": true
+  }
+]

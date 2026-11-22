@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <radialGradient id="seaGrad" cx="50%" cy="20%" r="75%">
+      <stop offset="0%" stop-color="#15232b"/>
+      <stop offset="100%" stop-color="#0b1016"/>
+    </radialGradient>
+    <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22252c"/>
+      <stop offset="50%" stop-color="#1c2026"/>
+      <stop offset="100%" stop-color="#171a20"/>
+    </linearGradient>
+    <linearGradient id="snowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#303b46" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#1c2026" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="marshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b302a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#172026" stop-opacity="0.1"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#b8860b" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Sea of Ghosts backdrop -->
+  <rect width="1200" height="900" fill="url(#seaGrad)"/>
+  <rect width="1200" height="900" fill="url(#gridPattern)"/>
+
+  <!-- Stylized coastline of Skyrim mainland (x: 40..940, y: 80..850 in SVG top-down; note Leaflet CRS.Simple y = 900 - svgY) -->
+  <!-- Wait: In SVG y=0 is TOP, y=900 is BOTTOM! Let's align coordinates carefully! -->
+  <!-- Leaflet [lat, lng] = [y_from_bottom, x_from_left]. So svgY = 900 - lat! -->
+  <!-- Let's double check key positions:
+       Solitude: lat=735, lng=245 -> svgY=165, svgX=245
+       Winterhold: lat=815, lng=745 -> svgY=85, svgX=745
+       Dawnstar: lat=775, lng=515 -> svgY=125, svgX=515
+       Morthal: lat=635, lng=345 -> svgY=265, svgX=345
+       Windhelm: lat=615, lng=795 -> svgY=285, svgX=795
+       Whiterun: lat=430, lng=520 -> svgY=470, svgX=520
+       Rorikstead: lat=485, lng=305 -> svgY=415, svgX=305
+       Riverwood: lat=290, lng=480 -> svgY=610, svgX=480
+       Helgen: lat=180, lng=500 -> svgY=720, svgX=500
+       Riften: lat=215, lng=860 -> svgY=685, svgX=860
+       Solstheim: lat=660, lng=1055 -> svgY=240, svgX=1055
+  -->
+
+  <!-- Skyrim Mainland Silhouette -->
+  <path d="M 110,230 L 175,180 L 235,140 L 290,150 L 330,195 L 385,155 L 445,130 L 520,105 L 585,120 L 650,100 L 710,75 L 775,70 L 820,120 L 810,185 L 845,250 L 885,330 L 920,440 L 915,570 L 925,700 L 860,775 L 740,785 L 620,765 L 515,785 L 415,765 L 300,770 L 210,720 L 145,620 L 115,490 L 95,350 Z"
+        fill="url(#landGrad)" stroke="#b8860b" stroke-opacity="0.45" stroke-width="2"/>
+
+  <!-- Northern Snow Shelf (Winterhold / Dawnstar / High Gate) -->
+  <path d="M 220,150 L 385,155 L 520,105 L 710,75 L 775,70 L 820,120 L 810,185 L 760,260 L 640,250 L 460,230 L 320,210 Z"
+        fill="url(#snowGrad)"/>
+
+  <!-- Hjaalmarch Marshes around Morthal / Myrwatch -->
+  <ellipse cx="365" cy="270" rx="85" ry="52" fill="url(#marshGrad)" stroke="#1e4d3b" stroke-opacity="0.45" stroke-dasharray="5 4"/>
+
+  <!-- Solstheim Island Inset (Northeast) -->
+  <rect x="945" y="105" width="215" height="255" rx="12" fill="#0f151c" fill-opacity="0.7" stroke="#b8860b" stroke-opacity="0.35" stroke-dasharray="6 4"/>
+  <path d="M 1015,155 L 1065,140 L 1110,175 L 1120,245 L 1095,305 L 1045,320 L 995,295 L 985,220 Z"
+        fill="#242730" stroke="#b8860b" stroke-opacity="0.55" stroke-width="1.8"/>
+  <text x="1052" y="128" text-anchor="middle" fill="#b8860b" font-family="serif" font-size="13" letter-spacing="3">SOLSTHEIM</text>
+  <text x="1052" y="346" text-anchor="middle" fill="#8b949e" font-family="serif" font-size="10" font-style="italic">(Dragonborn — Barco de Windhelm)</text>
+
+  <!-- Sea of Ghosts Label -->
+  <text x="580" y="55" text-anchor="middle" fill="#5e7f8f" font-family="serif" font-size="14" letter-spacing="6" opacity="0.7">SEA OF GHOSTS</text>
+
+  <!-- Lake Ilinalta (between Guardian Stones and Riverwood/Falkreath) -->
+  <path d="M 355,635 Q 405,615 445,645 Q 455,685 415,700 Q 360,695 355,635 Z"
+        fill="#162b36" stroke="#477a8f" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="398" y="672" text-anchor="middle" fill="#7aa9bd" font-family="serif" font-size="10" font-style="italic">Lago Ilinalta</text>
+
+  <!-- White River & Throat of the World stylized lines -->
+  <path d="M 445,645 Q 490,610 500,550 Q 535,480 610,465 Q 720,420 795,285"
+        fill="none" stroke="#3c6b7e" stroke-width="2.5" stroke-opacity="0.55"/>
+
+  <!-- Stylized Roads (Early/Mid route hints) -->
+  <path d="M 500,720 Q 485,670 465,650 Q 475,625 480,610 Q 505,540 520,470"
+        fill="none" stroke="#b8860b" stroke-width="1.6" stroke-dasharray="4 4" stroke-opacity="0.45"/>
+  <path d="M 520,470 Q 410,440 355,415"
+        fill="none" stroke="#b8860b" stroke-width="1.2" stroke-dasharray="4 4" stroke-opacity="0.35"/>
+  <path d="M 520,470 Q 670,380 795,285 Q 780,190 745,85"
+        fill="none" stroke="#b8860b" stroke-width="1.2" stroke-dasharray="4 4" stroke-opacity="0.35"/>
+
+  <!-- Subtle Mountain Ridges (Throat of the World & Pale/Winterhold) -->
+  <g fill="none" stroke="#6d6452" stroke-width="1.2" stroke-opacity="0.45">
+    <path d="M 565,585 L 585,555 L 605,585 M 595,580 L 620,545 L 645,580 M 625,588 L 650,558 L 675,588"/>
+    <path d="M 415,215 L 435,190 L 455,215 M 600,200 L 622,175 L 644,200 M 670,185 L 690,162 L 710,185"/>
+    <path d="M 225,440 L 245,415 L 265,440 M 720,560 L 742,532 L 764,560"/>
+  </g>
+
+  <!-- Hold / Region Labels -->
+  <text x="245" y="128" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="11" letter-spacing="2" opacity="0.65">HAAFINGAR</text>
+  <text x="360" y="242" text-anchor="middle" fill="#6fb39a" font-family="serif" font-size="11" letter-spacing="2" opacity="0.7">HJAALMARCH</text>
+  <text x="515" y="95" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="11" letter-spacing="2" opacity="0.65">THE PALE</text>
+  <text x="745" y="65" text-anchor="middle" fill="#9bc2d4" font-family="serif" font-size="11" letter-spacing="2" opacity="0.75">WINTERHOLD</text>
+  <text x="795" y="325" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="11" letter-spacing="2" opacity="0.65">EASTMARCH</text>
+  <text x="520" y="505" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="12" letter-spacing="3" opacity="0.65">WHITERUN</text>
+  <text x="845" y="720" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="11" letter-spacing="2" opacity="0.65">THE RIFT</text>
+  <text x="485" y="755" text-anchor="middle" fill="#c7b58c" font-family="serif" font-size="11" letter-spacing="2" opacity="0.65">FALKREATH</text>
+
+  <!-- Compass Rose (Bottom Left) -->
+  <g transform="translate(110, 795)" opacity="0.75">
+    <circle cx="0" cy="0" r="38" fill="none" stroke="#b8860b" stroke-width="1"/>
+    <circle cx="0" cy="0" r="32" fill="none" stroke="#b8860b" stroke-width="0.5" stroke-dasharray="2 3"/>
+    <polygon points="0,-42 6,-8 0,-14 -6,-8" fill="#b8860b"/>
+    <polygon points="0,42 6,8 0,14 -6,8" fill="#6d6452"/>
+    <polygon points="-42,0 -8,-6 -14,0 -8,6" fill="#6d6452"/>
+    <polygon points="42,0 8,-6 14,0 8,6" fill="#6d6452"/>
+    <text x="0" y="-48" text-anchor="middle" fill="#b8860b" font-family="serif" font-size="11" font-weight="bold">N</text>
+    <text x="0" y="57" text-anchor="middle" fill="#8b949e" font-family="serif" font-size="9">S</text>
+    <text x="-52" y="4" text-anchor="middle" fill="#8b949e" font-family="serif" font-size="9">O</text>
+    <text x="52" y="4" text-anchor="middle" fill="#8b949e" font-family="serif" font-size="9">L</text>
+  </g>
+
+  <!-- Map Cartouche Title (Top Left) -->
+  <g transform="translate(48, 42)">
+    <rect x="0" y="0" width="275" height="58" rx="6" fill="#0f1218" fill-opacity="0.82" stroke="#b8860b" stroke-opacity="0.55"/>
+    <text x="16" y="24" fill="#d4af37" font-family="serif" font-size="13" font-weight="bold" letter-spacing="2">MAPA DO GRIMÓRIO</text>
+    <text x="16" y="43" fill="#9aa5b1" font-family="serif" font-size="10">Skyrim AE &amp; Solstheim · Cartografia Estilizada</text>
+  </g>
+</svg>
