@@ -1,38 +1,21 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const PORT = 4173;
+
 export default defineConfig({
   testDir: './e2e',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  timeout: 30_000,
+  retries: process.env.CI ? 1 : 0,
   reporter: [['list'], ['html', { open: 'never' }]],
-  use: {
-    baseURL: 'http://127.0.0.1:4173',
-    trace: 'on-first-retry',
-    launchOptions: {
-      args: ['--no-sandbox'],
-    },
+  use: { baseURL: `http://localhost:${PORT}`, trace: 'on-first-retry' },
+  webServer: {
+    command: `npm run build && npx vite preview --port ${PORT} --strictPort`,
+    url: `http://localhost:${PORT}`,
+    reuseExistingServer: !process.env.CI,
+    timeout: 180_000,
   },
   projects: [
-    {
-      name: 'desktop',
-      use: {
-        ...devices['Desktop Chrome'],
-        viewport: { width: 1280, height: 800 },
-      },
-    },
-    {
-      name: 'mobile',
-      use: {
-        ...devices['Pixel 7'],
-      },
-    },
+    { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
+    { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
-  webServer: {
-    command: 'npm run preview -- --port 4173 --host 127.0.0.1 --strictPort',
-    url: 'http://127.0.0.1:4173',
-    reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
-  },
 });

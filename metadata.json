@@ -2,5 +2,5 @@
   "name": "Grimório do Necromante Furtivo",
   "description": "Companion interativo passo a passo para a build Stealth Necromancer Summoner em Skyrim Anniversary Edition, da fuga de Helgen ao nível 46+.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
