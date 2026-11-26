@@ -8,6 +8,7 @@ import glossaryJson from '../../data/glossary.json';
 import guidedStepsJson from '../../data/guided_steps.json';
 import housesJson from '../../data/houses.json';
 import itemsJson from '../../data/items.json';
+import levelPlanJson from '../../data/level_plan.json';
 import locationsJson from '../../data/locations.json';
 import mythsVsFactsJson from '../../data/myths_vs_facts.json';
 import perksJson from '../../data/perks.json';
@@ -27,6 +28,7 @@ import type {
   GuidedStep,
   House,
   Item,
+  LevelPlan,
   LocationEntry,
   MythVsFact,
   Perk,
@@ -55,3 +57,4 @@ export const equipmentChecklist = equipmentChecklistJson as EquipmentChecklistSl
 export const guidedSteps = guidedStepsJson as GuidedStep[];
 export const combatAndLoops = combatAndLoopsJson as CombatAndLoops;
 export const dossieMechanics = dossieMechanicsJson as DossieMechanics;
+export const levelPlan = levelPlanJson as LevelPlan;

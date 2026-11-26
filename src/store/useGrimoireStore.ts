@@ -33,6 +33,7 @@ export interface PlayerProgressState {
   collectedLootIds: string[];
   visitedLocationIds: string[];
   completedFinalChecklistIds: string[];
+  completedLevelTasks: string[]; // ids like "12-0" (level-eventIndex)
 
   // Actions
   setTheme: (theme: ThemeMode) => void;
@@ -54,6 +55,7 @@ export interface PlayerProgressState {
   toggleLootCollected: (lootId: string) => void;
   toggleLocationVisited: (locationId: string) => void;
   toggleFinalChecklist: (itemId: string) => void;
+  toggleLevelTask: (taskId: string) => void;
 
   exportProgress: () => string;
   importProgress: (rawJson: string) => { ok: boolean; error?: string };
@@ -84,6 +86,7 @@ const DEFAULT_PROGRESS = {
   collectedLootIds: [] as string[],
   visitedLocationIds: [] as string[],
   completedFinalChecklistIds: [] as string[],
+  completedLevelTasks: [] as string[],
 };
 
 function toggleArrayItem(arr: string[], item: string): string[] {
@@ -149,6 +152,9 @@ export const useGrimoireStore = create<PlayerProgressState>()(
           completedFinalChecklistIds: toggleArrayItem(s.completedFinalChecklistIds, itemId),
         })),
 
+      toggleLevelTask: (taskId) =>
+        set((s) => ({ completedLevelTasks: toggleArrayItem(s.completedLevelTasks, taskId) })),
+
       exportProgress: () => {
         const s = get();
         const payload = {
@@ -167,6 +173,7 @@ export const useGrimoireStore = create<PlayerProgressState>()(
             collectedLootIds: s.collectedLootIds,
             visitedLocationIds: s.visitedLocationIds,
             completedFinalChecklistIds: s.completedFinalChecklistIds,
+            completedLevelTasks: s.completedLevelTasks,
           },
         };
         return JSON.stringify(payload, null, 2);
@@ -196,6 +203,7 @@ export const useGrimoireStore = create<PlayerProgressState>()(
             completedFinalChecklistIds: Array.isArray(d.completedFinalChecklistIds)
               ? d.completedFinalChecklistIds
               : [],
+            completedLevelTasks: Array.isArray(d.completedLevelTasks) ? d.completedLevelTasks : [],
           });
           return { ok: true };
         } catch (err) {

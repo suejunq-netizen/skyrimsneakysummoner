@@ -1,0 +1,1126 @@
+{
+ "baseline_race": "breton",
+ "aproximado": true,
+ "fonte": "Dossiê de pesquisa (UESP, 22/11/2026) + simulação de perks e XP; metas de habilidade interpoladas entre marcos",
+ "levels": [
+  {
+   "nivel": 1,
+   "skills": {
+    "Conjuration": 25,
+    "Illusion": 20,
+    "Sneak": 15,
+    "Archery": 15,
+    "Enchanting": 15
+   },
+   "perks_comprados": [],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 100,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Fuja de Helgen com Hadvar ou Ralof e siga até Riverwood.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tower"
+    },
+    {
+     "tag": "L",
+     "texto": "Pegue poções, ouro e armas simples; evite o urso da caverna para não gastar curas.",
+     "confidence_tier": "B",
+     "needs_verification": false
+    },
+    {
+     "tag": "G",
+     "texto": "Equipe Flames numa mão e Healing na outra.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    },
+    {
+     "tag": "T",
+     "texto": "Ative a Mage Stone, ao sul de Riverwood: habilidades mágicas sobem mais rápido (+20%).",
+     "confidence_tier": "C",
+     "needs_verification": true,
+     "icon": "stone"
+    },
+    {
+     "tag": "T",
+     "texto": "Breton começa com Conjure Familiar: lance várias vezes para treinar Conjuration.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 2,
+   "skills": {
+    "Conjuration": 27,
+    "Illusion": 21,
+    "Sneak": 17,
+    "Archery": 17,
+    "Enchanting": 16
+   },
+   "perks_comprados": [
+    "Novice Conjuration"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 125,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Em Whiterun, fale com Proventus Avenicci em Dragonsreach: inicia In the Shadows (Creation Club).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "scroll"
+    },
+    {
+     "tag": "W",
+     "texto": "O ouro da quest depende do nível (500 até o nível 9, 750 no 10–19). O arco vale mais que o ouro: faça cedo.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 3,
+   "skills": {
+    "Conjuration": 29,
+    "Illusion": 22,
+    "Sneak": 19,
+    "Archery": 19,
+    "Enchanting": 16
+   },
+   "perks_comprados": [
+    "Apprentice Conjuration"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 150,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Conclua In the Shadows e pegue o Bow of Shadows.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "bow"
+    },
+    {
+     "tag": "G",
+     "texto": "Equipe o arco, compre flechas e ataque sempre agachado.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "bow"
+    }
+   ]
+  },
+  {
+   "nivel": 4,
+   "skills": {
+    "Conjuration": 31,
+    "Illusion": 24,
+    "Sneak": 21,
+    "Archery": 21,
+    "Enchanting": 17
+   },
+   "perks_comprados": [
+    "Novice Illusion"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 175,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Meta do nível: Conjuration ~30. Alterne Conjure Familiar com Soul Trap em cadáveres; descanse (Wait 1 h) para recuperar Magicka.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 5,
+   "skills": {
+    "Conjuration": 32,
+    "Illusion": 25,
+    "Sneak": 22,
+    "Archery": 22,
+    "Enchanting": 18
+   },
+   "perks_comprados": [
+    "Apprentice Illusion"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 200,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Myrwatch, a leste de Morthal: leia o diário de Hans e lance fogo no selo. Um chaurus nivelado guarda a torre.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tower"
+    },
+    {
+     "tag": "L",
+     "texto": "Pegue o tomo de Flames no corpo de Hans e use o Arcane Enchanter da casa.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tome"
+    }
+   ]
+  },
+  {
+   "nivel": 6,
+   "skills": {
+    "Conjuration": 34,
+    "Illusion": 26,
+    "Sneak": 24,
+    "Archery": 24,
+    "Enchanting": 18
+   },
+   "perks_comprados": [
+    "Enchanter 1"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 225,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Desencante itens para aprender Fortify Conjuration, Illusion e Magicka; capture almas com Soul Trap.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tome"
+    }
+   ]
+  },
+  {
+   "nivel": 7,
+   "skills": {
+    "Conjuration": 36,
+    "Illusion": 28,
+    "Sneak": 26,
+    "Archery": 26,
+    "Enchanting": 19
+   },
+   "perks_comprados": [
+    "Stealth 1"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 250,
+   "eventos": [
+    {
+     "tag": "L",
+     "texto": "Consiga Muffle (Illusion 25, Apprentice, 180 s): compre de vendedor de magias ou ache em magos. Treine Illusion com ele.",
+     "confidence_tier": "C",
+     "needs_verification": true,
+     "icon": "tome"
+    }
+   ]
+  },
+  {
+   "nivel": 8,
+   "skills": {
+    "Conjuration": 38,
+    "Illusion": 29,
+    "Sneak": 28,
+    "Archery": 28,
+    "Enchanting": 19
+   },
+   "perks_comprados": [
+    "Overdraw 1"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 275,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "The Black Star (nível sugerido 8): Aranea Ienith, Shrine of Azura perto de Winterhold. Salve antes de entregar.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "star"
+    },
+    {
+     "tag": "W",
+     "texto": "Azura’s Star (almas não humanas) e Black Star (humanas) são exclusivas.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 9,
+   "skills": {
+    "Conjuration": 40,
+    "Illusion": 30,
+    "Sneak": 30,
+    "Archery": 30,
+    "Enchanting": 20
+   },
+   "perks_comprados": [
+    "Necromancy"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 300,
+   "eventos": [
+    {
+     "tag": "W",
+     "texto": "Fim do Early: confira Conjuration 40, Illusion 30, Sneak 30, Archery 30. Se faltar, treine em vez de subir de nível.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 10,
+   "skills": {
+    "Conjuration": 44,
+    "Illusion": 32,
+    "Sneak": 31,
+    "Archery": 31,
+    "Enchanting": 23
+   },
+   "perks_comprados": [
+    "Animage"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 325,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Winterhold: passe no teste de Faralda e faça First Lessons para liberar os mestres do College.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tower"
+    },
+    {
+     "tag": "L",
+     "texto": "Phinis Gestor passa a vender tomos Novice do Grimoire.",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "tome"
+    },
+    {
+     "tag": "W",
+     "texto": "Rumores da Dawnguard surgem. Não comece ainda: vampiros passam a atacar a Goldenhills.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 11,
+   "skills": {
+    "Conjuration": 48,
+    "Illusion": 34,
+    "Sneak": 32,
+    "Archery": 32,
+    "Enchanting": 26
+   },
+   "perks_comprados": [
+    "Enchanter 2"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 350,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Siga as metas de habilidade ao lado: use Muffle para Illusion e encante peças baratas para Enchanting.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 12,
+   "skills": {
+    "Conjuration": 52,
+    "Illusion": 36,
+    "Sneak": 33,
+    "Archery": 33,
+    "Enchanting": 29
+   },
+   "perks_comprados": [
+    "Adept Conjuration"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 375,
+   "eventos": [
+    {
+     "tag": "L",
+     "texto": "Compre os tomos Novice e Apprentice do Necromantic Grimoire e Fenrik’s Welcome (ou pegue no baú de Hob’s Fall Cave).",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "tome"
+    }
+   ]
+  },
+  {
+   "nivel": 13,
+   "skills": {
+    "Conjuration": 56,
+    "Illusion": 38,
+    "Sneak": 34,
+    "Archery": 34,
+    "Enchanting": 32
+   },
+   "perks_comprados": [
+    "Muffled Movement"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 400,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Quiet Casting chega no nível 20 (Illusion 50): treine Illusion com Muffle e Fenrik’s Welcome.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 14,
+   "skills": {
+    "Conjuration": 60,
+    "Illusion": 40,
+    "Sneak": 35,
+    "Archery": 35,
+    "Enchanting": 35
+   },
+   "perks_comprados": [
+    "Kindred Mage"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 425,
+   "eventos": [
+    {
+     "tag": "W",
+     "texto": "Marco do Mid: Conjuration 60, Illusion 40, Sneak 35, Archery 35, Enchanting 35.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 15,
+   "skills": {
+    "Conjuration": 63,
+    "Illusion": 42,
+    "Sneak": 36,
+    "Archery": 36,
+    "Enchanting": 38
+   },
+   "perks_comprados": [
+    "Backstab"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 450,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Blood on the Ice (Windhelm): guarda do cemitério, Jorleif, Helgird, Hjerim (Strange Amulet). Não venda a Calixto.",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "amulet"
+    },
+    {
+     "tag": "W",
+     "texto": "O passo do Wuunferth é incerto: salve antes e teste.",
+     "confidence_tier": "A/C",
+     "needs_verification": true
+    }
+   ]
+  },
+  {
+   "nivel": 16,
+   "skills": {
+    "Conjuration": 67,
+    "Illusion": 43,
+    "Sneak": 37,
+    "Archery": 37,
+    "Enchanting": 40
+   },
+   "perks_comprados": [
+    "Enchanter 3"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 475,
+   "eventos": [
+    {
+     "tag": "G",
+     "texto": "Necromancer Robes of Recharging passam a aparecer (nível 16).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 17,
+   "skills": {
+    "Conjuration": 70,
+    "Illusion": 45,
+    "Sneak": 38,
+    "Archery": 38,
+    "Enchanting": 42
+   },
+   "perks_comprados": [
+    "Dark Souls"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 500,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Dark Souls entra aqui (Conjuration 70 exigido): treine Conjuration com invocações reais.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 18,
+   "skills": {
+    "Conjuration": 73,
+    "Illusion": 47,
+    "Sneak": 38,
+    "Archery": 38,
+    "Enchanting": 45
+   },
+   "perks_comprados": [
+    "Summoner 1"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 525,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Enchanting ~45: encante Fortify Conjuration em mais uma peça.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 19,
+   "skills": {
+    "Conjuration": 77,
+    "Illusion": 48,
+    "Sneak": 39,
+    "Archery": 39,
+    "Enchanting": 48
+   },
+   "perks_comprados": [
+    "Expert Conjuration"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 550,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Prepare o exército para a Dawnguard: dois aliados invocados e Quiet Casting em vista.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 20,
+   "skills": {
+    "Conjuration": 80,
+    "Illusion": 50,
+    "Sneak": 40,
+    "Archery": 40,
+    "Enchanting": 50
+   },
+   "perks_comprados": [
+    "Quiet Casting"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 575,
+   "eventos": [
+    {
+     "tag": "L",
+     "texto": "Tomos Adept do Grimoire entram na loja de Phinis.",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "tome"
+    },
+    {
+     "tag": "Q",
+     "texto": "Dawnguard: Awakening (Serana, Dimhollow Crypt a leste de Morthal). Comece só com 2 invocações e Quiet Casting.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "tower"
+    }
+   ]
+  },
+  {
+   "nivel": 21,
+   "skills": {
+    "Conjuration": 83,
+    "Illusion": 52,
+    "Sneak": 41,
+    "Archery": 41,
+    "Enchanting": 53
+   },
+   "perks_comprados": [
+    "Deadly Aim"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 600,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Deadly Aim liberado (Sneak 40): pratique sneak attack com o arco.",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "bow"
+    }
+   ]
+  },
+  {
+   "nivel": 22,
+   "skills": {
+    "Conjuration": 86,
+    "Illusion": 54,
+    "Sneak": 43,
+    "Archery": 41,
+    "Enchanting": 56
+   },
+   "perks_comprados": [
+    "Insightful Enchanter"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 625,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Soul Cairn (zona mínima 13): tomos de Wrathman, Mistman e Boneman e o crânio de Arvak.",
+     "confidence_tier": "B",
+     "needs_verification": false,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 23,
+   "skills": {
+    "Conjuration": 89,
+    "Illusion": 56,
+    "Sneak": 44,
+    "Archery": 42,
+    "Enchanting": 59
+   },
+   "perks_comprados": [
+    "Adept Illusion"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 650,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Adept Illusion liberado: prepare Illusion 75 para Expert.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 24,
+   "skills": {
+    "Conjuration": 91,
+    "Illusion": 59,
+    "Sneak": 46,
+    "Archery": 43,
+    "Enchanting": 61
+   },
+   "perks_comprados": [
+    "Enchanter 4"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 675,
+   "eventos": [
+    {
+     "tag": "G",
+     "texto": "Robes of Replenishing passam a aparecer (nível 24).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 25,
+   "skills": {
+    "Conjuration": 94,
+    "Illusion": 61,
+    "Sneak": 47,
+    "Archery": 44,
+    "Enchanting": 64
+   },
+   "perks_comprados": [
+    "Summoner 2"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 700,
+   "eventos": [
+    {
+     "tag": "W",
+     "texto": "Marco do fim do Mid: Conjuration 80, Illusion 50, Sneak 40, Archery 40, Enchanting 50.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 26,
+   "skills": {
+    "Conjuration": 97,
+    "Illusion": 63,
+    "Sneak": 49,
+    "Archery": 44,
+    "Enchanting": 67
+   },
+   "perks_comprados": [],
+   "perks_guardados": 1,
+   "xp_proximo_nivel": 725,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "High Gate Ruins (oeste de Dawnstar, zona mínima 24): A Scroll for Anska e Máscara de Vokun (−20% de custo).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "mask"
+    },
+    {
+     "tag": "W",
+     "texto": "Entre com Conjuration 90+ e dois aliados.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 27,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 65,
+    "Sneak": 50,
+    "Archery": 45,
+    "Enchanting": 70
+   },
+   "perks_comprados": [
+    "Master Conjuration",
+    "Twin Souls"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 750,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Conjuration 100: compre Master Conjuration e Twin Souls (perks do nível).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "skull"
+    },
+    {
+     "tag": "W",
+     "texto": "Teste em casa Twin Souls com Colosso e esqueletos antes de qualquer luta difícil.",
+     "confidence_tier": "A/C",
+     "needs_verification": true
+    }
+   ]
+  },
+  {
+   "nivel": 28,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 68,
+    "Sneak": 50,
+    "Archery": 47,
+    "Enchanting": 77
+   },
+   "perks_comprados": [
+    "Corpus Enchanter"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 775,
+   "eventos": [
+    {
+     "tag": "Q",
+     "texto": "Dragonborn: barco de Windhelm até Solstheim. Black Books: Filament and Filigree (Secret of Arcana) e Waking Dreams (respec).",
+     "confidence_tier": "B",
+     "needs_verification": false,
+     "icon": "ship"
+    }
+   ]
+  },
+  {
+   "nivel": 29,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 72,
+    "Sneak": 50,
+    "Archery": 48,
+    "Enchanting": 83
+   },
+   "perks_comprados": [
+    "Enchanter 5"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 800,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Enchanting quase 100: encante 4 peças com 25% Fortify Conjuration (custo zero).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 30,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 90
+   },
+   "perks_comprados": [
+    "Expert Illusion"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 825,
+   "eventos": [
+    {
+     "tag": "T",
+     "texto": "Expert Illusion liberado (Illusion 75): Fenrik’s Welcome com custo menor.",
+     "confidence_tier": "A",
+     "needs_verification": false
+    }
+   ]
+  },
+  {
+   "nivel": 31,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [
+    "Extra Effect"
+   ],
+   "perks_guardados": 0,
+   "xp_proximo_nivel": 850,
+   "eventos": [
+    {
+     "tag": "W",
+     "texto": "Build completa. Daqui você só sobe de nível por causa dos portões de equipamento (grind controlado).",
+     "confidence_tier": "A",
+     "needs_verification": false
+    },
+    {
+     "tag": "T",
+     "texto": "Teste em casa: Colosso, esqueletos e Twin Souls juntos. Anote quantas criaturas ficam.",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "skull"
+    }
+   ]
+  },
+  {
+   "nivel": 32,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 1,
+   "xp_proximo_nivel": 875,
+   "eventos": [
+    {
+     "tag": "G",
+     "texto": "Necromancer Robes Elite passam a aparecer (nível 32).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 33,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 2,
+   "xp_proximo_nivel": 900,
+   "eventos": []
+  },
+  {
+   "nivel": 34,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 3,
+   "xp_proximo_nivel": 925,
+   "eventos": []
+  },
+  {
+   "nivel": 35,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 4,
+   "xp_proximo_nivel": 950,
+   "eventos": [
+    {
+     "tag": "L",
+     "texto": "Tomos Expert do Grimoire entram na loja de Phinis.",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "tome"
+    }
+   ]
+  },
+  {
+   "nivel": 36,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 5,
+   "xp_proximo_nivel": 975,
+   "eventos": []
+  },
+  {
+   "nivel": 37,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 6,
+   "xp_proximo_nivel": 1000,
+   "eventos": []
+  },
+  {
+   "nivel": 38,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 7,
+   "xp_proximo_nivel": 1025,
+   "eventos": []
+  },
+  {
+   "nivel": 39,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 8,
+   "xp_proximo_nivel": 1050,
+   "eventos": []
+  },
+  {
+   "nivel": 40,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 9,
+   "xp_proximo_nivel": 1075,
+   "eventos": [
+    {
+     "tag": "G",
+     "texto": "Ascendant Necromancer Robes e Hood passam a aparecer (nível 40).",
+     "confidence_tier": "A",
+     "needs_verification": false,
+     "icon": "robe"
+    }
+   ]
+  },
+  {
+   "nivel": 41,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 10,
+   "xp_proximo_nivel": 1100,
+   "eventos": []
+  },
+  {
+   "nivel": 42,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 11,
+   "xp_proximo_nivel": 1125,
+   "eventos": []
+  },
+  {
+   "nivel": 43,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 12,
+   "xp_proximo_nivel": 1150,
+   "eventos": []
+  },
+  {
+   "nivel": 44,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 13,
+   "xp_proximo_nivel": 1175,
+   "eventos": []
+  },
+  {
+   "nivel": 45,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 14,
+   "xp_proximo_nivel": 1200,
+   "eventos": []
+  },
+  {
+   "nivel": 46,
+   "skills": {
+    "Conjuration": 100,
+    "Illusion": 75,
+    "Sneak": 50,
+    "Archery": 50,
+    "Enchanting": 100
+   },
+   "perks_comprados": [],
+   "perks_guardados": 15,
+   "xp_proximo_nivel": 1225,
+   "eventos": [
+    {
+     "tag": "L",
+     "texto": "Phinis vende Conjure Bone Colossus e Ancient Deathpriest (nível 46).",
+     "confidence_tier": "A/C",
+     "needs_verification": true,
+     "icon": "tome"
+    }
+   ]
+  }
+ ],
+ "gates": [
+  {
+   "nivel": 10,
+   "texto": "Phinis: tomos Novice",
+   "confidence_tier": "A/C"
+  },
+  {
+   "nivel": 16,
+   "texto": "Robes of Recharging",
+   "confidence_tier": "A"
+  },
+  {
+   "nivel": 20,
+   "texto": "Phinis: tomos Adept",
+   "confidence_tier": "A/C"
+  },
+  {
+   "nivel": 24,
+   "texto": "Robes of Replenishing",
+   "confidence_tier": "A"
+  },
+  {
+   "nivel": 27,
+   "texto": "Twin Souls (Conjuration 100)",
+   "confidence_tier": "A"
+  },
+  {
+   "nivel": 32,
+   "texto": "Robes Elite",
+   "confidence_tier": "A"
+  },
+  {
+   "nivel": 35,
+   "texto": "Phinis: tomos Expert",
+   "confidence_tier": "A/C"
+  },
+  {
+   "nivel": 40,
+   "texto": "Ascendant Robes e Hood",
+   "confidence_tier": "A"
+  },
+  {
+   "nivel": 46,
+   "texto": "Bone Colossus e Deathpriest",
+   "confidence_tier": "A/C"
+  }
+ ]
+}

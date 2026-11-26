@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
-  ArrowRight,
-  Compass,
   Flame,
-  Map as MapIcon,
   Shield,
   Sparkles,
   Users,
@@ -13,29 +10,17 @@ import {
 import {
   attributesPlan,
   combatAndLoops,
-  guidedSteps,
   phases,
   races,
   standingStones,
 } from '../../lib/data';
 import { useGrimoireStore } from '../../store/useGrimoireStore';
 import { CalloutBox } from '../../components/CalloutBox';
-import { GlossaryTooltip } from '../../components/GlossaryTooltip';
+import { JourneyDashboard } from './JourneyDashboard';
 
 export const HomeOverviewPage: React.FC = () => {
   const selectedRace = useGrimoireStore((s) => s.selectedRace);
   const setSelectedRace = useGrimoireStore((s) => s.setSelectedRace);
-  const completedGuidedSteps = useGrimoireStore((s) => s.completedGuidedSteps);
-  const completedQuests = useGrimoireStore((s) => s.completedQuests);
-  const purchasedPerks = useGrimoireStore((s) => s.purchasedPerks);
-  const characterLevel = useGrimoireStore((s) => s.characterLevel);
-
-  const nextStep =
-    guidedSteps.find((st) => !completedGuidedSteps.includes(st.id)) ??
-    guidedSteps[guidedSteps.length - 1];
-
-  const totalPerksBought = Object.values(purchasedPerks).reduce((a, b) => a + b, 0);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -43,75 +28,7 @@ export const HomeOverviewPage: React.FC = () => {
       transition={{ duration: 0.25 }}
       className="space-y-10"
     >
-      {/* Hero Banner */}
-      <section className="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 sm:p-8">
-        <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-mono-nums tracking-widest uppercase text-[var(--accent-gold)]">
-            Skyrim Anniversary Edition · Build Companion Oficial-Only
-          </p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-[var(--text-primary)] leading-tight">
-            O Grimório do Necromante Furtivo
-          </h1>
-          <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
-            Da fuga de Helgen ao nível 46+, conduza seu{' '}
-            <strong className="text-[var(--text-primary)]">Stealth Necromancer Summoner</strong>: um mago que evoca mortos-vivos com{' '}
-            <GlossaryTooltip term="Conjuration">Conjuration</GlossaryTooltip>, silencia feitiços com{' '}
-            <GlossaryTooltip term="Illusion">Illusion</GlossaryTooltip> e desaparece em{' '}
-            <GlossaryTooltip term="Sneak">Sneak</GlossaryTooltip> com o Bow of Shadows enquanto o exército absorve o{' '}
-            <GlossaryTooltip term="Aggro">agro</GlossaryTooltip>.
-          </p>
-
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            <Link
-              to="/rota"
-              className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent-gold)] px-5 py-2.5 text-sm font-semibold text-[#11141a] hover:opacity-90 transition-opacity min-h-[44px]"
-            >
-              <Compass className="w-4 h-4" aria-hidden="true" />
-              <span>Continuar Rota Guiada</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-            <Link
-              to="/mapa"
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface-muted)] px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] hover:border-[var(--accent-gold)]/50 transition-colors min-h-[44px]"
-            >
-              <MapIcon className="w-4 h-4 text-[var(--accent-ice)]" aria-hidden="true" />
-              <span>Abrir Mapa Interativo</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Summary KPI Strip */}
-        <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div>
-            <div className="text-xs text-[var(--text-muted)]">Passo Atual</div>
-            <div className="font-mono-nums text-xl font-semibold text-[var(--accent-gold)] mt-0.5">
-              {completedGuidedSteps.length} / {guidedSteps.length}
-            </div>
-            <div className="text-xs text-[var(--text-secondary)] truncate">{nextStep.titulo}</div>
-          </div>
-          <div>
-            <div className="text-xs text-[var(--text-muted)]">Quests Concluídas</div>
-            <div className="font-mono-nums text-xl font-semibold text-[var(--text-primary)] mt-0.5">
-              {completedQuests.length} / 14
-            </div>
-            <div className="text-xs text-[var(--text-secondary)]">Rota principal + DLCs</div>
-          </div>
-          <div>
-            <div className="text-xs text-[var(--text-muted)]">Perks Marcados</div>
-            <div className="font-mono-nums text-xl font-semibold text-[var(--text-primary)] mt-0.5">
-              {totalPerksBought}
-            </div>
-            <div className="text-xs text-[var(--text-secondary)]">Árvore essencial</div>
-          </div>
-          <div>
-            <div className="text-xs text-[var(--text-muted)]">Nível Registrado</div>
-            <div className="font-mono-nums text-xl font-semibold text-[var(--accent-ice)] mt-0.5">
-              Nv. {characterLevel}
-            </div>
-            <div className="text-xs text-[var(--text-secondary)]">Meta End-Game: 46+</div>
-          </div>
-        </div>
-      </section>
+      <JourneyDashboard />
 
       {/* Regra de Ouro */}
       <CalloutBox tipo="Regra de Ouro" titulo="Regra de Ouro: Salve Muito" sourcePage={5}>

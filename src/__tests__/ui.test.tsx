@@ -1,3 +1,5 @@
+import { useGrimoireStore } from '../store/useGrimoireStore';
+import { JourneyDashboard } from '../features/route/JourneyDashboard';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
@@ -79,5 +81,23 @@ describe('Reference Pages (Myths, Glossary, About, LevelBudget)', () => {
     expect(screen.getByText(/Marcos da Build \(Baseline Breton/i)).toBeInTheDocument();
     expect(screen.getByText(/Treinadores Úteis/i)).toBeInTheDocument();
     expect(screen.getByText('Falion')).toBeInTheDocument();
+  });
+});
+
+describe('JourneyDashboard', () => {
+  it('links the first unfinished objective to its exact step and location', () => {
+    const initialSteps = useGrimoireStore.getState().completedGuidedSteps;
+    useGrimoireStore.setState({ completedGuidedSteps: ['step_01_helgen'] });
+    try {
+      render(<MemoryRouter><JourneyDashboard /></MemoryRouter>);
+      expect(screen.getByRole('heading', { name: 'Ativar a Mage Stone' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: /Retomar jornada/ })).toHaveAttribute('href', '/rota?passo=step_02_mage_stone');
+      expect(screen.getByRole('link', { name: 'Localizar no mapa' })).toHaveAttribute('href', '/mapa?local=loc_guardian_stones');
+      fireEvent.click(screen.getByRole('button', { name: 'Níveis 11–25' }));
+      expect(screen.getByRole('button', { name: 'Níveis 11–25' })).toHaveAttribute('aria-pressed', 'true');
+      expect(useGrimoireStore.getState().completedGuidedSteps).toEqual(['step_01_helgen']);
+    } finally {
+      useGrimoireStore.setState({ completedGuidedSteps: initialSteps });
+    }
   });
 });

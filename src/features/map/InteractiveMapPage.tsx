@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet.markercluster';
 import {
@@ -49,7 +50,9 @@ export const InteractiveMapPage: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
   const [dlcFilter, setDlcFilter] = useState<string>('all');
   const [focusNextOnly, setFocusNextOnly] = useState(false);
-  const [selectedLoc, setSelectedLoc] = useState<LocationEntry | null>(locations[0] ?? null);
+  const [searchParams] = useSearchParams();
+  const linkedLocation = locations.find((location) => location.id === searchParams.get('local'));
+  const [selectedLoc, setSelectedLoc] = useState<LocationEntry | null>(linkedLocation ?? locations[0] ?? null);
 
   const nextStep = useMemo(
     () =>
@@ -105,6 +108,12 @@ export const InteractiveMapPage: React.FC = () => {
       routeLayerRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    if (!linkedLocation) return;
+    setSelectedLoc(linkedLocation);
+    if (linkedLocation.coordenadas) mapRef.current?.setView(linkedLocation.coordenadas, 0.5);
+  }, [linkedLocation]);
 
   // Update markers & suggested phase polyline
   useEffect(() => {

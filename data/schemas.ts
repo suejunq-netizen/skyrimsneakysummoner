@@ -369,4 +369,43 @@ export const DossieMechanicsSchema = z.object({
   ).min(1),
 });
 
+export const LevelEventSchema = z.object({
+  tag: z.enum(['Q', 'L', 'G', 'T', 'W']),
+  icon: z
+    .enum(['skull', 'bow', 'tome', 'robe', 'stone', 'amulet', 'mask', 'star', 'tower', 'ship', 'scroll'])
+    .optional(),
+  texto: z.string().min(1),
+  confidence_tier: ConfidenceTierSchema,
+  needs_verification: z.boolean(),
+});
 
+export const LevelPlanEntrySchema = z.object({
+  nivel: z.number().int().min(1).max(46),
+  skills: z.object({
+    Conjuration: z.number().int().min(15).max(100),
+    Illusion: z.number().int().min(15).max(100),
+    Sneak: z.number().int().min(15).max(100),
+    Archery: z.number().int().min(15).max(100),
+    Enchanting: z.number().int().min(15).max(100),
+  }),
+  perks_comprados: z.array(z.string().min(1)),
+  perks_guardados: z.number().int().min(0),
+  xp_proximo_nivel: z.number().int().min(1),
+  eventos: z.array(LevelEventSchema),
+});
+
+export const LevelPlanSchema = z.object({
+  baseline_race: z.literal('breton'),
+  aproximado: z.boolean(),
+  fonte: z.string().min(1),
+  levels: z.array(LevelPlanEntrySchema).length(46),
+  gates: z
+    .array(
+      z.object({
+        nivel: z.number().int().min(1).max(46),
+        texto: z.string().min(1),
+        confidence_tier: ConfidenceTierSchema,
+      })
+    )
+    .min(1),
+});

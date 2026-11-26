@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   CheckCircle2,
@@ -9,7 +9,7 @@ import {
   Save,
   User,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { combatAndLoops, guidedSteps, phases, quests } from '../../lib/data';
 import { useGrimoireStore } from '../../store/useGrimoireStore';
 import { CalloutBox } from '../../components/CalloutBox';
@@ -27,11 +27,20 @@ export const GuidedRoutePage: React.FC = () => {
   const completedFinalChecklistIds = useGrimoireStore((s) => s.completedFinalChecklistIds);
   const toggleFinalChecklist = useGrimoireStore((s) => s.toggleFinalChecklist);
 
+  const [searchParams] = useSearchParams();
+  const linkedStep = guidedSteps.find((step) => step.id === searchParams.get('passo'));
   const [selectedStepId, setSelectedStepId] = useState<string | null>(null);
   const [saveModalStep, setSaveModalStep] = useState<{ title: string; warnings: string[] } | null>(
     null
   );
   const [tab, setTab] = useState<'proximo' | 'checklists' | 'problemas'>('proximo');
+
+  useEffect(() => {
+    if (!linkedStep) return;
+    setActivePhase(linkedStep.fase);
+    setSelectedStepId(linkedStep.id);
+    setTab('proximo');
+  }, [linkedStep, setActivePhase]);
 
   const phaseSteps = guidedSteps.filter((st) => st.fase === activePhase);
   const currentPhaseObj = phases.find((p) => p.id === activePhase) ?? phases[0];
@@ -73,7 +82,7 @@ export const GuidedRoutePage: React.FC = () => {
           </div>
 
           {/* Sub-tabs */}
-          <div className="flex items-center gap-1 p-1 rounded-lg bg-[var(--bg-surface-muted)] border border-[var(--border-subtle)]">
+          <div className="flex flex-wrap items-center gap-1 p-1 rounded-lg bg-[var(--bg-surface-muted)] border border-[var(--border-subtle)]">
             {(
               [
                 ['proximo', 'Próximo Passo'],
@@ -196,7 +205,7 @@ export const GuidedRoutePage: React.FC = () => {
                 <p className="mt-1 text-[var(--text-primary)]">{activeStep.onde_ir}</p>
                 {activeStep.location_id && (
                   <Link
-                    to="/mapa"
+                    to={`/mapa?local=${activeStep.location_id}`}
                     className="inline-block mt-1.5 text-xs text-[var(--accent-gold)] hover:underline"
                   >
                     Ver no mapa →

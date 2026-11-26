@@ -1,3 +1,4 @@
+import { LevelPlanPage } from './features/level-plan/LevelPlanPage';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -23,6 +24,7 @@ export function AppRoutes() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomeOverviewPage />} />
+        <Route path="/niveis" element={<LevelPlanPage />} />
         <Route path="/rota" element={<GuidedRoutePage />} />
         <Route path="/quests" element={<QuestTrackerPage />} />
         <Route path="/grimorio" element={<SpellbookPage />} />

@@ -1,0 +1,52 @@
+{
+  "rewrites": [
+    {
+      "source": "/niveis",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/rota",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/quests",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/grimorio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/perks",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/exercito",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mapa",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/equipamento",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/orcamento",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/mitos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/glossario",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/index.html"
+    }
+  ]
+}

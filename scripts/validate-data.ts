@@ -15,6 +15,7 @@ import {
   LocationSchema,
   MythVsFactSchema,
   PerkSchema,
+  LevelPlanSchema,
   PhaseSchema,
   QuestSchema,
   RaceSchema,
@@ -62,6 +63,7 @@ function main() {
   const equipmentChecklist = z.array(EquipmentChecklistSchema).parse(readJson('equipment_checklist.json'));
   const guidedSteps = z.array(GuidedStepSchema).parse(readJson('guided_steps.json'));
   const combatAndLoops = CombatAndLoopsSchema.parse(readJson('combat_and_loops.json'));
+  const levelPlan = LevelPlanSchema.parse(readJson('level_plan.json'));
   const dossieMechanics = DossieMechanicsSchema.parse(readJson('dossie_mechanics.json'));
 
   const phaseIds = assertUniqueIds(phases, 'phases.json');
@@ -206,8 +208,27 @@ function main() {
     pagesCovered.add(r.source_page);
   }
 
+  // Level plan integrity: sequential levels, perks match perk_order, at most 30 perks bought
+  const orderLabels = new Set(dossieMechanics.perk_order_30.map((s) => s.label.replace(/\/\d+$/, '')));
+  let boughtTotal = 0;
+  levelPlan.levels.forEach((lv, idx) => {
+    if (lv.nivel !== idx + 1) throw new Error(`level_plan level at index ${idx} has nivel ${lv.nivel}`);
+    for (const label of lv.perks_comprados) {
+      if (!orderLabels.has(label)) throw new Error(`level_plan level ${lv.nivel} buys unknown perk ${label}`);
+      boughtTotal += 1;
+    }
+  });
+  if (boughtTotal !== dossieMechanics.perk_order_30.length) {
+    throw new Error(`level_plan buys ${boughtTotal} perks but perk_order has ${dossieMechanics.perk_order_30.length}`);
+  }
+  for (let i = 1; i < levelPlan.gates.length; i++) {
+    if (levelPlan.gates[i].nivel <= levelPlan.gates[i - 1].nivel) {
+      throw new Error('level_plan gates must be in ascending level order');
+    }
+  }
+
   console.log('=== DATA VALIDATION PASSED ===');
-  console.log(`Total validated records: ${allRecords.length} + dossie_mechanics.json (18 data files)`);
+  console.log(`Total validated records: ${allRecords.length} + dossie_mechanics.json (19 data files)`);
   console.log(`Content pages covered (PDF 4-27): ${Array.from(pagesCovered).sort((a, b) => a - b).join(', ')}`);
   console.log(`Records flagged needs_verification: ${allRecords.filter((r) => r.needs_verification).length}`);
 }

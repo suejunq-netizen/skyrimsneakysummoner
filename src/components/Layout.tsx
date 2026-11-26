@@ -9,6 +9,7 @@ import {
   GitFork,
   HelpCircle,
   Info,
+  Layers,
   Map as MapIcon,
   Menu,
   Moon,
@@ -90,6 +91,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   const navItems = [
+    { to: '/niveis', label: t('nav.levels'), Icon: Layers },
     { to: '/rota', label: t('nav.route'), Icon: Compass },
     { to: '/quests', label: t('nav.quests'), Icon: ScrollText },
     { to: '/grimorio', label: t('nav.spells'), Icon: BookOpen },

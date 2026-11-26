@@ -10,6 +10,9 @@ import type {
   GlossaryEntrySchema,
   GuidedStepSchema,
   HouseSchema,
+  LevelEventSchema,
+  LevelPlanEntrySchema,
+  LevelPlanSchema,
   ItemSchema,
   LocationSchema,
   MythVsFactSchema,
@@ -41,6 +44,9 @@ export type GlossaryEntry = z.infer<typeof GlossaryEntrySchema>;
 export type EquipmentChecklistSlot = z.infer<typeof EquipmentChecklistSchema>;
 export type GuidedStep = z.infer<typeof GuidedStepSchema>;
 export type CombatAndLoops = z.infer<typeof CombatAndLoopsSchema>;
+export type LevelEvent = z.infer<typeof LevelEventSchema>;
+export type LevelPlanEntry = z.infer<typeof LevelPlanEntrySchema>;
+export type LevelPlan = z.infer<typeof LevelPlanSchema>;
 export type DossieMechanics = z.infer<typeof DossieMechanicsSchema>;
 
 export type QuestState = 'bloqueada' | 'disponivel' | 'em_andamento' | 'concluida';

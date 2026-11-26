@@ -115,3 +115,89 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Expedition dashboard */
+.dark {
+  --bg-canvas: #101418;
+  --bg-surface: #171d23;
+  --bg-surface-muted: #202830;
+  --border-subtle: rgba(201, 178, 131, 0.28);
+  --accent-gold: #dfbd79;
+  --accent-ice: #97c9cf;
+}
+.journey-dashboard { display: grid; gap: 1.1rem; font-family: system-ui, sans-serif; }
+.journey-hero {
+  display: grid;
+  align-items: center;
+  min-height: 25rem;
+  overflow: hidden;
+  color: #f6f0e5;
+  border: 1px solid #6f6250;
+  border-radius: .85rem;
+  background: linear-gradient(90deg, #0e141bed 0%, #111820da 35%, #13191c3b 100%),
+    url('/assets/frostbound-ruins.png') 62% 48% / cover, #19232c;
+}
+.journey-hero-content { padding: clamp(1.4rem, 5vw, 4.2rem); max-width: 45rem; }
+.journey-hero h1, .journey-panel h2 {
+  margin: .45rem 0 .8rem;
+  font-family: var(--font-display);
+  line-height: 1.13;
+  font-weight: 700;
+}
+.journey-hero h1 { font-size: clamp(1.95rem, 4.65vw, 4rem); text-shadow: 0 3px 24px #080b10; }
+.journey-hero-content > p:not(.journey-kicker) { max-width: 36rem; color: #e5dfd4; }
+.journey-kicker { display: flex; gap: .6rem; align-items: center; color: var(--accent-gold); font-size: .875rem; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
+.journey-hero .journey-kicker { color: #f1c983; }
+.journey-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.35rem; }
+.journey-actions a, .journey-primary {
+  display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; padding: .55rem .95rem;
+  border-radius: .4rem; border: 1px solid #b59a69; font-size: .9rem; font-weight: 700;
+}
+.journey-primary { background: #dfbd79; color: #161511; }
+.journey-actions a:not(.journey-primary) { background: #11171ddd; }
+.journey-primary:hover { background: #f1d394; }
+.journey-stats, .journey-shortcuts, .journey-columns { display: grid; gap: .8rem; }
+.journey-stats, .journey-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.journey-columns { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; }
+.journey-stats a, .journey-shortcuts a, .journey-panel {
+  border: 1px solid var(--border-subtle); background: var(--bg-surface); border-radius: .65rem;
+}
+.journey-stats a, .journey-shortcuts a { display: flex; gap: .8rem; align-items: center; padding: .85rem 1rem; font-size: .88rem; color: var(--text-secondary); }
+.journey-stats a:hover, .journey-shortcuts a:hover { border-color: var(--accent-gold); }
+.journey-stats svg, .journey-shortcuts svg { flex: 0 0 22px; color: var(--accent-gold); }
+.journey-stats strong, .journey-shortcuts strong { display: block; color: var(--text-primary); }
+.journey-stats strong { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.journey-panel { padding: clamp(1rem, 2.3vw, 1.65rem); min-width: 0; }
+.journey-panel h2 { font-size: clamp(1.28rem, 2vw, 1.85rem); }
+.journey-panel > p, .journey-panel li { color: var(--text-secondary); }
+.journey-panel > .journey-kicker, .journey-panel > .journey-place { color: var(--accent-ice); }
+.journey-place { display: flex; align-items: baseline; gap: .45rem; margin-bottom: .65rem; font-weight: 600; }
+.journey-place svg { flex: 0 0 16px; }
+.journey-panel ol { list-style: decimal; padding-left: 1.35rem; margin: .85rem 0 1.2rem; }
+.journey-panel ol li + li { margin-top: .45rem; }
+.journey-panel .journey-warning { border-inline-start: 3px solid var(--accent-gold); padding-inline-start: .65rem; margin-bottom: .85rem; }
+.journey-text-link { display: inline-block; margin: .65rem .85rem 0 0; padding: .3rem 0; color: var(--accent-ice); text-decoration: underline; }
+.journey-primary + .journey-text-link { margin-inline-start: .7rem; }
+.journey-phase-buttons { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+.journey-phase-buttons button {
+  min-height: 44px; padding: .25rem .65rem; background: var(--bg-surface-muted);
+  border-radius: .35rem; border: 1px solid var(--border-subtle); font-size: .875rem; cursor: pointer;
+}
+.journey-phase-buttons button[aria-pressed="true"] { border-color: var(--accent-gold); color: var(--accent-gold); }
+.journey-progress-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .2rem .6rem; font-size: .875rem; }
+.journey-panel progress { display: block; width: 100%; height: .55rem; margin: .45rem 0 .85rem; accent-color: var(--accent-gold); }
+.journey-steps a { display: flex; min-height: 44px; align-items: center; gap: .65rem; border-bottom: 1px solid var(--border-subtle); padding: .35rem .25rem; font-size: .95rem; }
+.journey-steps a:hover, .journey-steps a[aria-current="step"] { color: var(--accent-gold); }
+.journey-steps svg { color: var(--accent-ice); flex: 0 0 16px; }
+.journey-step-dot { margin-inline: 3px; width: 10px; height: 10px; flex: 0 0 10px; border: 1px solid currentColor; transform: rotate(45deg); }
+@media (max-width: 50rem) {
+  .journey-columns { grid-template-columns: minmax(0, 1fr); }
+  .journey-hero { min-height: 21rem; }
+}
+@media (max-width: 34rem) {
+  .journey-shortcuts { grid-template-columns: minmax(0, 1fr); }
+  .journey-stats { gap: .35rem; }
+  .journey-stats a { display: grid; gap: .3rem; padding: .6rem .45rem; line-height: 1.3; }
+  .journey-hero h1 { overflow-wrap: anywhere; }
+  .journey-hero { background-position: 72% center; }
+}
