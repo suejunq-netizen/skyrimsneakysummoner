@@ -6,10 +6,11 @@ Companion web offline-first (PWA) em `pt-BR` (com alternância opcional para `en
 
 ## Recursos Principais
 
+- **Nível a Nível (`/niveis`)**: Para cada nível de 1 a 46: o que fazer (quests, loot, equipamento, treino, avisos com selo de confiança), perks liberados (simulação da ordem de 30 perks contra o requisito de habilidade), metas de habilidade, travas de equipamento com contagem de níveis restantes e grind controlado após o nível 31. Arte original em SVG (banner nórdico por fase, anel rúnico, ícones temáticos).
 - **Rota Guiada (`/rota`)**: Modo *Próximo passo* com uma ação por vez, barras de progresso por fase (`Early`, `Mid`, `Late`, `End`), checklists de verificação, Apêndice C e tabela de solução de problemas.
 - **Diário de Quests (`/quests`)**: Filtros por fase, região e DLC, dependências automáticas (`bloqueada`, `disponivel`, `em_andamento`, `concluida`), passos marcáveis e modal preventivo de save separado (`SaveReminderModal`).
 - **Grimório de Feitiços (`/grimorio`)**: Catálogo filtrável por escola, pacote oficial e custo de Magicka, destacando os gates de Phinis Gestor (`1/10/20/35/46`) e selo `"Verificar no jogo"` para itens `[C]`/`[A/C]`.
-- **Árvore de Perks (`/perks`)**: Validação interativa dos pré-requisitos da Figura 3, UESP e Apêndice A (incluindo `Twin Souls`: `Conjuration 100` e `Dark Souls` **ou** `Elemental Potency`), ordem recomendada dos 29 perks e nota de respec (*Waking Dreams*).
+- **Árvore de Perks (`/perks`)**: Validação interativa dos pré-requisitos da Figura 3, UESP e Apêndice A (incluindo `Twin Souls`: `Conjuration 100` e `Dark Souls` **ou** `Elemental Potency`), ordem recomendada dos 30 perks e nota de respec (*Waking Dreams*).
 - **Exército & Calculadora de Magicka (`/exercito`)**: Simulador de invocações + seguidor + animal com gráfico por fase, alerta de despawn de *Bone Colossus* + *Twin Souls* `[A/C]` e calculadora com redução até **100% (custo ZERO com 4 peças × 25%; o teto de 85% vale apenas para resistências)**.
 - **Mapa Interativo Próprio (`/mapa`)**: Leaflet `CRS.Simple` sobre ilustração cartográfica original (`/public/assets/skyrim-stylized-map.svg`), posições ilustrativas baseadas apenas em descrições relativas (nenhuma coordenada inventada), alerta de *Encounter Zone*, *"Onde focar agora"* e barra lateral para locais sem coordenada.
 - **Arsenal, Loadout & Moradias (`/equipamento`)**: Checklist dos 7 slots, compras por vendedor e guia das moradias gratuitas da AE (`Myrwatch`, `Goldenhills Plantation`, `Bloodchill Manor`).
@@ -19,7 +20,7 @@ Companion web offline-first (PWA) em `pt-BR` (com alternância opcional para `en
 
 ## Base de Dados e Validação (`/data`)
 
-Todas as entidades foram consolidadas a partir do documento de referência e do dossiê UESP para 18 arquivos JSON em `/data/` (incluindo `dossie_mechanics.json`), cada registro contendo `source_page`, `confidence`, `confidence_tier` (`A | B | C | A/B | A/C`), `game_version_note` e `needs_verification`.
+Todas as entidades foram consolidadas a partir do documento de referência e do dossiê UESP para 19 arquivos JSON em `/data/` (incluindo `dossie_mechanics.json`), cada registro contendo `source_page`, `confidence`, `confidence_tier` (`A | B | C | A/B | A/C`), `game_version_note` e `needs_verification`.
 
 ```bash
 npm run validate:data
