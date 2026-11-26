@@ -1,7 +1,7 @@
 {
   "name": "grimorio-necromante-furtivo",
   "private": true,
-  "version": "0.0.0",
+  "version": "4.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
@@ -51,5 +51,8 @@
     "@playwright/test": "^1.50.0",
     "@axe-core/playwright": "^4.10.0",
     "prettier": "^3.4.0"
+  },
+  "engines": {
+    "node": "^22.22.2 || >=24.15.0"
   }
 }

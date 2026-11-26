@@ -6,6 +6,8 @@ Companion web offline-first (PWA) em `pt-BR` (com alternância opcional para `en
 
 ## Recursos Principais
 
+- **Painel da jornada**: mostra a primeira etapa pendente, instruções, personagem a procurar e atalhos para a etapa exata e seu local no mapa. O seletor de fases acompanha as etapas concluídas e permite consultar as próximas sem alterar o progresso salvo. A paisagem de abertura é uma ilustração original.
+
 - **Nível a Nível (`/niveis`)**: Para cada nível de 1 a 46: o que fazer (quests, loot, equipamento, treino, avisos com selo de confiança), perks liberados (simulação da ordem de 30 perks contra o requisito de habilidade), metas de habilidade, travas de equipamento com contagem de níveis restantes e grind controlado após o nível 31. Arte original em SVG (banner nórdico por fase, anel rúnico, ícones temáticos).
 - **Rota Guiada (`/rota`)**: Modo *Próximo passo* com uma ação por vez, barras de progresso por fase (`Early`, `Mid`, `Late`, `End`), checklists de verificação, Apêndice C e tabela de solução de problemas.
 - **Diário de Quests (`/quests`)**: Filtros por fase, região e DLC, dependências automáticas (`bloqueada`, `disponivel`, `em_andamento`, `concluida`), passos marcáveis e modal preventivo de save separado (`SaveReminderModal`).
